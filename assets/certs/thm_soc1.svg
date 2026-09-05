@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="thmBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111625"/>
+      <stop offset="100%" stop-color="#1c2438"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="420" fill="url(#thmBg)" rx="12"/>
+  <rect x="25" y="25" width="550" height="370" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-opacity="0.3" rx="8"/>
+  <rect x="50" y="55" width="140" height="28" rx="6" fill="#166534"/>
+  <text x="120" y="74" fill="#86efac" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">CERTIFICATE</text>
+  <text x="50" y="115" fill="#9ca3af" font-family="sans-serif" font-size="14">This is to certify that</text>
+  <text x="50" y="160" fill="#ffffff" font-family="sans-serif" font-size="28" font-weight="bold">JAYANTH KARRI</text>
+  <text x="50" y="195" fill="#22c55e" font-family="sans-serif" font-size="18" font-weight="bold">SOC Level 1 - Blue Team Path</text>
+  <text x="50" y="230" fill="#94a3b8" font-family="sans-serif" font-size="13">Hands-on Cyber Defense, Incident Triage, SIEM and Network Analysis</text>
+  <circle cx="480" cy="140" r="55" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
+  <text x="480" y="148" fill="#22c55e" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">THM</text>
+  <text x="50" y="360" fill="#64748b" font-family="monospace" font-size="11">TryHackMe Certified Training Path &#8226; Verified Completion</text>
+</svg>

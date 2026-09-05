@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="srGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d0e15"/>
+      <stop offset="100%" stop-color="#161726"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#srGrad)"/>
+  <rect x="0" y="0" width="800" height="38" fill="#090a10"/>
+  <circle cx="25" cy="19" r="6" fill="#ef4444"/>
+  <circle cx="45" cy="19" r="6" fill="#f59e0b"/>
+  <circle cx="65" cy="19" r="6" fill="#10b981"/>
+  <text x="400" y="24" fill="#9ca3af" font-family="monospace" font-size="13" text-anchor="middle">SecureRide — Vulnerable vs Secure Comparison</text>
+  
+  <rect x="30" y="60" width="350" height="350" rx="8" fill="#13141f" stroke="#ef4444" stroke-width="1.5" stroke-opacity="0.4"/>
+  <rect x="30" y="60" width="350" height="40" rx="8" fill="#201217"/>
+  <text x="50" y="85" fill="#ef4444" font-family="sans-serif" font-size="14" font-weight="bold">Vulnerable Implementation</text>
+  <text x="50" y="125" fill="#9ca3af" font-family="monospace" font-size="11">// Direct SQL Concatenation</text>
+  <rect x="45" y="140" width="320" height="75" rx="6" fill="#0a0b10"/>
+  <text x="55" y="165" fill="#f87171" font-family="monospace" font-size="12">$query = "SELECT * FROM users";</text>
+  <text x="55" y="185" fill="#f87171" font-family="monospace" font-size="12">$query .= " WHERE id='" . $_GET['id'] . "'";</text>
+  <text x="55" y="205" fill="#ef4444" font-family="monospace" font-size="11">// Exploit: 1' OR '1'='1 -- </text>
+  <rect x="45" y="230" width="130" height="28" rx="6" fill="#3b181d" stroke="#ef4444" stroke-width="1"/>
+  <text x="110" y="248" fill="#fca5a5" font-family="sans-serif" font-size="11" text-anchor="middle">SQL Injection</text>
+  <rect x="185" y="230" width="130" height="28" rx="6" fill="#3b181d" stroke="#ef4444" stroke-width="1"/>
+  <text x="250" y="248" fill="#fca5a5" font-family="sans-serif" font-size="11" text-anchor="middle">XSS / CSRF Flaw</text>
+  
+  <rect x="420" y="60" width="350" height="350" rx="8" fill="#13141f" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.4"/>
+  <rect x="420" y="60" width="350" height="40" rx="8" fill="#0f241a"/>
+  <text x="440" y="85" fill="#10b981" font-family="sans-serif" font-size="14" font-weight="bold">Hardened Mitigation</text>
+  <text x="440" y="125" fill="#9ca3af" font-family="monospace" font-size="11">// Prepared Statements and CSRF</text>
+  <rect x="435" y="140" width="320" height="75" rx="6" fill="#0a0b10"/>
+  <text x="445" y="165" fill="#34d399" font-family="monospace" font-size="12">$stmt = $pdo-&gt;prepare("SELECT *");</text>
+  <text x="445" y="185" fill="#34d399" font-family="monospace" font-size="12">$stmt-&gt;execute(['id' =&gt; $clean_id]);</text>
+  <text x="445" y="205" fill="#10b981" font-family="monospace" font-size="11">// Secure token validation</text>
+  <rect x="435" y="230" width="140" height="28" rx="6" fill="#112f20" stroke="#10b981" stroke-width="1"/>
+  <text x="505" y="248" fill="#6ee7b7" font-family="sans-serif" font-size="11" text-anchor="middle">PDO Prepared</text>
+  <rect x="585" y="230" width="140" height="28" rx="6" fill="#112f20" stroke="#10b981" stroke-width="1"/>
+  <text x="655" y="248" fill="#6ee7b7" font-family="sans-serif" font-size="11" text-anchor="middle">Argon2id Hash</text>
+</svg>

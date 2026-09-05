@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Jayanth Karri — SOC Analyst Portfolio | Real-Time Threat Detection</title>
+  <meta name="description" content="Portfolio of Jayanth Karri, SOC Analyst specializing in real-time threat detection, incident response, SIEM, EDR, and cyber defense operations.">
+  <link rel="stylesheet" href="./css/style.css?v=glass_blur_v8">
+</head>
+<body>
+
+  <!-- =========================================================================
+       INTERACTIVE GLOWING CURSOR EFFECT
+       ========================================================================= -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
+
+  <!-- =========================================================================
+       1. HEROIC INTRODUCTORY SPLASH SCREEN
+       ========================================================================= -->
+  <div id="splash-screen" class="splash-screen" aria-hidden="false">
+    <div class="splash-content">
+      <div class="splash-badge">
+        <span class="splash-dot"></span>
+        <span>SECURITY OPERATIONS CENTER</span>
+      </div>
+      <h1 class="splash-title">
+        Jayanth <span class="splash-dash">—</span> SOC Analyst Portfolio
+      </h1>
+      <div class="splash-loader-bar">
+        <div class="splash-loader-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. EDGE-TO-EDGE CANVAS BACKGROUND (ZERO BLANK SPACE)
+       ========================================================================= -->
+  <canvas id="canvas"></canvas>
+
+  <!-- =========================================================================
+       3. PINNED HEADER / NAVBAR (IMAGE 4 FORMAT, MODERN GLASS STYLE)
+       Always pinned at the top wherever user scrolls.
+       ========================================================================= -->
+  <header class="navbar-pinned" id="pinnedNavbar">
+    <a href="#hero" class="brand-title" aria-label="Home">
+      <span class="brand-bracket">&lt;</span> JAYANTH <span class="brand-bracket">/&gt;</span>
+    </a>
+
+    <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+      <a href="#experience" class="nav-item-link" data-nav="experience">Experience</a>
+      <a href="#projects" class="nav-item-link" data-nav="projects">Projects</a>
+      <a href="#certifications" class="nav-item-link" data-nav="certifications">Certificates</a>
+      <a href="#about" class="nav-item-link" data-nav="about">About</a>
+      <a href="#contact" class="nav-item-link" data-nav="contact">Contact</a>
+      <a href="./assets/resume/Jayanth_Soc-Analyst.pdf" target="_blank" rel="noopener noreferrer" class="nav-resume-pill">
+        <span>Resume ↗</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="main-wrapper">
+
+    <!-- =========================================================================
+         HERO SECTION
+         ========================================================================= -->
+    <section id="hero" class="hero-section">
+      <div class="hero-split-container">
+        <!-- Hero Left Flank -->
+        <div class="hero-left-flank">
+          <div class="hero-greeting-pill">
+            <span class="pulse-dot"></span>
+            <span>Hello, I'm</span>
+          </div>
+
+          <h1 class="hero-display-name">
+            <span class="name-first">Jayanth</span>
+            <span class="name-last">Karri</span>
+          </h1>
+
+          <div class="hero-role-pill">
+            <span class="hero-role-title">SOC Analyst • First Responder</span>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="./assets/resume/Jayanth_Soc-Analyst.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary-hero">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              View Resume ↗
+            </a>
+            <a href="#contact" class="btn-secondary-hero">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Get in Touch
+            </a>
+          </div>
+        </div>
+
+        <!-- Center Spacer for Canvas 3D Model -->
+        <div class="hero-center-spacer" aria-hidden="true"></div>
+
+        <!-- Hero Right Flank -->
+        <div class="hero-right-flank">
+          <div class="hero-kicker-badge">
+            <span class="shield-icon">🛡️</span>
+            <span>REAL-TIME THREAT DETECTION</span>
+          </div>
+
+          <h2 class="hero-headline-flank">
+            Real-Time<br>Threat Detection<br><span class="hero-highlight-purple">& SOC Operations</span>
+          </h2>
+
+          <p class="hero-desc-flank">
+            Defending enterprise infrastructure through 24/7 security event monitoring, rapid incident containment, and automated threat validation across endpoint, cloud, and identity vectors.
+          </p>
+
+          <div class="hero-live-badge">
+            <span class="pulse-dot active-green"></span>
+            <span>Active SOC First Responder • Mphasis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         EXPERIENCE SECTION (IMAGE 3 FORMAT, GENUINE DATA ONLY)
+         Vertical timeline with purple node, role, company, green credential box,
+         and purple circled checkmarks.
+         ========================================================================= -->
+    <section id="experience" class="content-section">
+      <div class="section-container">
+        <div class="section-header-ref">
+          <h2 class="section-title-ref">Experience</h2>
+          <div class="section-title-line"></div>
+        </div>
+
+        <div class="exp-timeline-container">
+          <div class="exp-timeline-line"></div>
+
+          <!-- Mphasis SOC Analyst (Jayanth's Real Experience) -->
+          <div class="exp-timeline-item">
+            <div class="exp-timeline-node"></div>
+
+            <div class="exp-card-ref">
+              <div class="exp-top-row">
+                <span class="exp-badge-pill">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  Full-Time • First Responder
+                </span>
+
+                <div class="exp-meta-info">
+                  <div class="exp-meta-line">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>Sept 2024 – Present</span>
+                  </div>
+                  <div class="exp-meta-line">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Bengaluru, Karnataka, India • On-Site</span>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="exp-role-title">SOC Analyst (First Responder)</h3>
+              <div class="exp-company-row">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                  <path d="M9 22v-4h6v4"></path>
+                  <line x1="8" y1="6" x2="8.01" y2="6"></line>
+                  <line x1="16" y1="6" x2="16.01" y2="6"></line>
+                  <line x1="8" y1="10" x2="8.01" y2="10"></line>
+                  <line x1="16" y1="10" x2="16.01" y2="10"></line>
+                  <line x1="8" y1="14" x2="8.01" y2="14"></line>
+                  <line x1="16" y1="14" x2="16.01" y2="14"></line>
+                </svg>
+                <span>Mphasis</span>
+              </div>
+
+              <!-- Green Credential Highlight Box (Image 3 format) -->
+              <a href="https://learn.microsoft.com/en-us/users/jayanthkarri-4682/credentials/7509c0da393c795e" target="_blank" rel="noopener noreferrer" class="exp-credential-box">
+                <div class="exp-cred-left">
+                  <span class="exp-cred-icon">🏆</span>
+                  <span>Certificate for Skill Competency – Microsoft Certified: Security Operations Analyst (SC-200)</span>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+
+              <!-- Bullets with Purple Circled Checkmarks (Genuine Mphasis Responsibilities) -->
+              <ul class="exp-bullets-ref">
+                <li class="exp-bullet-item">
+                  <div class="exp-bullet-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="10" stroke="#7c3aed" stroke-width="2" fill="rgba(124, 58, 237, 0.12)"/>
+                      <polyline points="8 12 11 15 16 9" stroke="#7c3aed" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <span><strong>Continuous Security Event Monitoring:</strong> 24/7 real-time event monitoring, alert triage, and high-fidelity threat validation across endpoint, email, cloud, and identity vectors.</span>
+                </li>
+                <li class="exp-bullet-item">
+                  <div class="exp-bullet-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="10" stroke="#7c3aed" stroke-width="2" fill="rgba(124, 58, 237, 0.12)"/>
+                      <polyline points="8 12 11 15 16 9" stroke="#7c3aed" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <span><strong>Incident Containment & Response:</strong> Rapidly investigating suspicious activities, isolating compromised hosts via CrowdStrike Falcon, and quarantining malicious phishing emails via Avanan and Check Point.</span>
+                </li>
+                <li class="exp-bullet-item">
+                  <div class="exp-bullet-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="10" stroke="#7c3aed" stroke-width="2" fill="rgba(124, 58, 237, 0.12)"/>
+                      <polyline points="8 12 11 15 16 9" stroke="#7c3aed" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <span><strong>ServiceNow & SLA Management:</strong> Logging, escalating, and managing security incident tickets within ServiceNow while maintaining strict operational SLA adherence.</span>
+                </li>
+                <li class="exp-bullet-item">
+                  <div class="exp-bullet-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="10" stroke="#7c3aed" stroke-width="2" fill="rgba(124, 58, 237, 0.12)"/>
+                      <polyline points="8 12 11 15 16 9" stroke="#7c3aed" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <span><strong>Cross-Platform Analysis:</strong> Querying telemetry across Devo SIEM, Microsoft Sentinel, and Defender XDR to hunt for persistent indicators of compromise (IOCs) and adversary techniques.</span>
+                </li>
+                <li class="exp-bullet-item">
+                  <div class="exp-bullet-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="10" stroke="#7c3aed" stroke-width="2" fill="rgba(124, 58, 237, 0.12)"/>
+                      <polyline points="8 12 11 15 16 9" stroke="#7c3aed" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <span><strong>Adversary TTP Mapping:</strong> Mapping all triage findings directly to MITRE ATT&CK tactics (T1059, T1078, T1566) for structured remediation playbooks.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         PROJECTS SECTION (IMAGE 2 FORMAT, JAYANTH'S REAL PROJECTS ONLY)
+         3-column cards with preview image, circular code </> button,
+         title, concise description, and bottom highlight pill.
+         ========================================================================= -->
+    <section id="projects" class="content-section">
+      <div class="section-container">
+        <div class="section-header-ref">
+          <h2 class="section-title-ref">My Projects</h2>
+          <div class="section-title-line"></div>
+        </div>
+
+        <div class="projects-ref-grid">
+          <!-- Real Project 1: Home Lab (Autonomous SOC Investigation System) -->
+          <div class="project-ref-card">
+            <div class="project-ref-img-wrap">
+              <img src="./assets/projects/siem_homelab.jpg" alt="Home Lab — Autonomous SOC Investigation System" loading="lazy">
+              <a href="https://github.com/karrijayanth65/home-lab-soc" target="_blank" rel="noopener noreferrer" class="project-ref-code-btn" title="View Code" aria-label="View Code">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <div class="project-ref-body">
+              <h3 class="project-ref-title">Home Lab — Autonomous SOC Investigation System</h3>
+              <p class="project-ref-desc">
+                An AI-driven autonomous SOC investigation and automation system that ingests suspicious telemetry (IPs, URLs, domains, hashes), runs automated IOC enrichment, multi-source OSINT validation using FAISS vector search and RAG, and automatically maps adversary tactics to MITRE ATT&CK.
+              </p>
+              <div class="project-ref-tag">
+                Autonomous RAG vector validation across Sentinel & Devo APIs
+              </div>
+            </div>
+          </div>
+
+          <!-- Real Project 2: Enterprise Threat Detection & Simulation Lab -->
+          <div class="project-ref-card">
+            <div class="project-ref-img-wrap">
+              <img src="./assets/projects/soc_investigations.jpg" alt="Enterprise Threat Detection & Simulation Lab" loading="lazy">
+              <a href="https://github.com/karrijayanth65/home-lab-soc" target="_blank" rel="noopener noreferrer" class="project-ref-code-btn" title="View Code" aria-label="View Code">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <div class="project-ref-body">
+              <h3 class="project-ref-title">Enterprise Threat Detection & Simulation Lab</h3>
+              <p class="project-ref-desc">
+                Virtual security operations range configured with endpoint telemetry sensors, Active Directory forest simulation, and centralized SIEM ingestion. Emulates real-world adversary behavior (credential dumping, lateral movement, persistence) to author, test, and tune high-fidelity KQL and Sigma rules.
+              </p>
+              <div class="project-ref-tag">
+                Microsoft Sentinel, CrowdStrike EDR, Sysmon & KQL Querying
+              </div>
+            </div>
+          </div>
+
+          <!-- Real Project 3: Autonomous Threat Intel & IOC Enrichment Pipeline -->
+          <div class="project-ref-card">
+            <div class="project-ref-img-wrap">
+              <img src="./assets/projects/osint_tool.svg" alt="Autonomous Threat Intel & IOC Enrichment Engine" loading="lazy">
+              <a href="https://github.com/karrijayanth65/home-lab-soc" target="_blank" rel="noopener noreferrer" class="project-ref-code-btn" title="View Code" aria-label="View Code">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <div class="project-ref-body">
+              <h3 class="project-ref-title">Autonomous Threat Intel & IOC Enrichment Pipeline</h3>
+              <p class="project-ref-desc">
+                Automated threat intelligence ingestion and enrichment engine integrating VirusTotal, AbuseIPDB, and IPGeolocation APIs to triage network artifacts, produce automated verdicts, and accelerate first-response investigations.
+              </p>
+              <div class="project-ref-tag">
+                Reduced IOC enrichment time from ~20 min to &lt;10 sec
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         CERTIFICATIONS SECTION (IMAGE 1 FORMAT, JAYANTH'S REAL VERIFIED CERTS)
+         Card grid with image, circular preview eye button, and bold title below.
+         ========================================================================= -->
+    <section id="certifications" class="content-section">
+      <div class="section-container">
+        <div class="section-header-ref">
+          <h2 class="section-title-ref">My Certifications</h2>
+          <div class="section-title-line"></div>
+        </div>
+
+        <div class="certs-ref-grid">
+          <!-- Real Cert 1: Microsoft Certified SC-200 -->
+          <div class="cert-ref-card">
+            <div class="cert-ref-img-wrap" onclick="openModal('image', './assets/certs/SC%20200.jpg', 'Microsoft Certified: SC-200 Security Operations Analyst')">
+              <img src="./assets/certs/SC%20200.jpg" alt="Microsoft Certified: Security Operations Analyst (SC-200)" loading="lazy">
+              <button class="cert-ref-action-btn" onclick="event.stopPropagation(); openModal('image', './assets/certs/SC%20200.jpg', 'Microsoft Certified: SC-200 Security Operations Analyst')" aria-label="Preview Certificate" title="Preview Certificate">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+            <div class="cert-ref-body">
+              <h3 class="cert-ref-title">Microsoft Certified: Security Operations Analyst (SC-200)</h3>
+              <p class="cert-ref-issuer">Microsoft • ID: 7509C0DA393C795E • Verified Associate</p>
+              <a href="https://learn.microsoft.com/en-us/users/jayanthkarri-4682/credentials/7509c0da393c795e?ref=https%3A%2F%2Fwww.linkedin.com%2F" target="_blank" rel="noopener noreferrer" class="cert-verify-link">
+                Verify Credential ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Real Cert 2: CompTIA Security+ (SY0-701) -->
+          <div class="cert-ref-card">
+            <div class="cert-ref-img-wrap" onclick="openModal('image', './assets/certs/CompTIA%20Security+.jpg', 'CompTIA Security+ (SY0-701)')">
+              <img src="./assets/certs/CompTIA%20Security+.jpg" alt="CompTIA Security+ (SY0-701)" loading="lazy">
+              <button class="cert-ref-action-btn" onclick="event.stopPropagation(); openModal('image', './assets/certs/CompTIA%20Security+.jpg', 'CompTIA Security+ (SY0-701)')" aria-label="Preview Certificate" title="Preview Certificate">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+            <div class="cert-ref-body">
+              <h3 class="cert-ref-title">CompTIA Security+ (SY0-701)</h3>
+              <p class="cert-ref-issuer">Computing Technology Industry Association • Credly Verified</p>
+              <a href="https://www.credly.com/badges/1c25b324-0c4f-41bd-843f-246f5774db5c" target="_blank" rel="noopener noreferrer" class="cert-verify-link">
+                Verify on Credly ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Real Cert 3: Google Cybersecurity Professional Certificate -->
+          <div class="cert-ref-card">
+            <div class="cert-ref-img-wrap" onclick="openModal('image', './assets/certs/Google%20Cybersecurity.jpg', 'Google Cybersecurity Professional Certificate')">
+              <img src="./assets/certs/Google%20Cybersecurity.jpg" alt="Google Cybersecurity Professional Certificate" loading="lazy">
+              <button class="cert-ref-action-btn" onclick="event.stopPropagation(); openModal('image', './assets/certs/Google%20Cybersecurity.jpg', 'Google Cybersecurity Professional Certificate')" aria-label="Preview Certificate" title="Preview Certificate">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+            <div class="cert-ref-body">
+              <h3 class="cert-ref-title">Google Cybersecurity Professional Certificate</h3>
+              <p class="cert-ref-issuer">Google Career Certificates • Coursera Verified</p>
+              <a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/QUANVRM0SN0Y" target="_blank" rel="noopener noreferrer" class="cert-verify-link">
+                Verify on Coursera ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Real Cert 4: LetsDefend Certified SOC Analyst -->
+          <div class="cert-ref-card">
+            <div class="cert-ref-img-wrap" onclick="openModal('image', './assets/certs/Lets%20defend%20Soc%20Analyst.png', 'LetsDefend Certified SOC Analyst')">
+              <img src="./assets/certs/Lets%20defend%20Soc%20Analyst.png" alt="LetsDefend Certified SOC Analyst" loading="lazy">
+              <button class="cert-ref-action-btn" onclick="event.stopPropagation(); openModal('image', './assets/certs/Lets%20defend%20Soc%20Analyst.png', 'LetsDefend Certified SOC Analyst')" aria-label="Preview Certificate" title="Preview Certificate">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+            <div class="cert-ref-body">
+              <h3 class="cert-ref-title">LetsDefend Certified SOC Analyst</h3>
+              <p class="cert-ref-issuer">LetsDefend Academy • Hands-On Incident Triage Verified</p>
+              <a href="https://app.letsdefend.io/certificate/show/29b276fb-9e4e-4e3c-b181-3319d1684fd4" target="_blank" rel="noopener noreferrer" class="cert-verify-link">
+                Verify Badge ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         ABOUT ME SECTION (IMAGE 5 FORMAT, JAYANTH'S REAL INFO)
+         Bio paragraph, Achievements 4 cards, [ Technical Skills | Education ] tabs,
+         and skill chips.
+         ========================================================================= -->
+    <section id="about" class="content-section">
+      <div class="section-container">
+        <div class="section-header-ref">
+          <h2 class="section-title-ref">About Me</h2>
+          <div class="section-title-line"></div>
+        </div>
+
+        <p class="about-bio-text">
+          SOC Analyst specializing in real-time threat detection, incident response, endpoint investigation, and cloud security. Experienced in handling phishing, malware, and emerging threats using enterprise SIEM, EDR, and cloud security platforms. Passionate about detection engineering and security automation.
+        </p>
+
+        <h3 class="about-subheading">Achievements</h3>
+
+        <!-- 4 Horizontal Stat Cards (Image 5 format, Real Data) -->
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <span class="achievement-icon">🛡️</span>
+            <span class="achievement-val">Mphasis SOC Analyst</span>
+            <span class="achievement-sub">24/7 Threat Monitoring</span>
+          </div>
+
+          <div class="achievement-card">
+            <span class="achievement-icon">⚡</span>
+            <span class="achievement-val">Strict SLA Adherence</span>
+            <span class="achievement-sub">High-Severity Alert Triage</span>
+          </div>
+
+          <div class="achievement-card">
+            <span class="achievement-icon">🎓</span>
+            <span class="achievement-val">B.Tech in ECE</span>
+            <span class="achievement-sub">Engineering Foundation</span>
+          </div>
+
+          <div class="achievement-card">
+            <span class="achievement-icon">🔒</span>
+            <span class="achievement-val">CompTIA &amp; SC-200</span>
+            <span class="achievement-sub">Verified Blue Team Certs</span>
+          </div>
+        </div>
+
+        <!-- Interactive Tabs: Technical Skills | Education -->
+        <div class="about-tabs-row">
+          <button id="tabAboutSkills" class="about-tab-btn active" onclick="switchAboutTab('skills')">
+            Technical Skills
+          </button>
+          <button id="tabAboutEdu" class="about-tab-btn" onclick="switchAboutTab('education')">
+            Education &amp; Credentials
+          </button>
+        </div>
+
+        <!-- Panel 1: Technical Skills -->
+        <div id="panelAboutSkills" class="about-panel active">
+          <h3 class="about-subheading">Core Capabilities</h3>
+          <div class="skill-pills-ref">
+            <span class="skill-pill-item">Security Operations Center (SOC)</span>
+            <span class="skill-pill-item">Alert Triage &amp; Escalation</span>
+            <span class="skill-pill-item">Incident Response &amp; Containment</span>
+            <span class="skill-pill-item">Threat Hunting &amp; Detection</span>
+            <span class="skill-pill-item">Devo SIEM</span>
+            <span class="skill-pill-item">Microsoft Sentinel</span>
+            <span class="skill-pill-item">Defender XDR</span>
+            <span class="skill-pill-item">CrowdStrike Falcon EDR</span>
+            <span class="skill-pill-item">Avanan Phishing Defense</span>
+            <span class="skill-pill-item">Check Point Harmony</span>
+            <span class="skill-pill-item">Netskope CASB</span>
+            <span class="skill-pill-item">Microsoft Entra ID (Azure AD)</span>
+            <span class="skill-pill-item">KQL Querying</span>
+            <span class="skill-pill-item">MITRE ATT&amp;CK Framework</span>
+            <span class="skill-pill-item">ServiceNow SLA Management</span>
+            <span class="skill-pill-item">Sysmon Telemetry</span>
+            <span class="skill-pill-item">Python</span>
+            <span class="skill-pill-item">RAG &amp; Vector Search (FAISS)</span>
+            <span class="skill-pill-item">Threat Intelligence (OSINT)</span>
+          </div>
+        </div>
+
+        <!-- Panel 2: Education & Credentials -->
+        <div id="panelAboutEdu" class="about-panel">
+          <h3 class="about-subheading">Academic &amp; Specialized Credentials</h3>
+          <div class="edu-card-ref">
+            <div class="edu-card-header">
+              <div>
+                <h4 class="edu-degree">B.Tech in Electronics &amp; Communication Engineering</h4>
+                <div class="edu-college">Ramachandra College of Engineering (Affiliated with JNTUK)</div>
+              </div>
+              <span class="edu-year-badge">Engineering Graduate</span>
+            </div>
+            <p class="edu-desc">
+              Strong technical engineering foundation covering communication protocols, digital electronics, computer network architectures, and analytical problem solving, directly transitioned into enterprise security operations and cyber defense engineering.
+            </p>
+            <div class="edu-tags-row">
+              <span class="edu-tag-pill">Network Architectures</span>
+              <span class="edu-tag-pill">Communication Protocols</span>
+              <span class="edu-tag-pill">Digital Logic &amp; Systems</span>
+              <span class="edu-tag-pill">CrowdStrike Incident Responder</span>
+              <span class="edu-tag-pill">Google Agentic AI Developer</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         CONTACT SECTION
+         ========================================================================= -->
+    <section id="contact" class="content-section">
+      <div class="section-container">
+        <div class="contact-card-demo">
+          <h2 class="contact-demo-title">Contact Me</h2>
+          <p class="contact-demo-sub">Interested in discussing real-time threat detection, SOC operations, or security initiatives? Let's connect.</p>
+
+          <!-- Big Glowing Copy Email Button -->
+          <button class="btn-copy-email-glow" onclick="copyEmail()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy Email 📋</span>
+          </button>
+
+          <!-- Two Column Contact Info Grid -->
+          <div class="contact-demo-grid">
+            <!-- Left Column: Direct Info -->
+            <div class="contact-demo-col">
+              <div class="contact-info-group">
+                <span class="contact-info-label">Email</span>
+                <a href="mailto:karrijayanth65@gmail.com" class="contact-info-val">karrijayanth65@gmail.com</a>
+              </div>
+              <div class="contact-info-group">
+                <span class="contact-info-label">Location</span>
+                <span class="contact-info-val">Bengaluru, Karnataka, India</span>
+              </div>
+            </div>
+
+            <!-- Right Column: Social Links with Arrows -->
+            <div class="contact-demo-col">
+              <div class="contact-info-group">
+                <span class="contact-info-label">Social Profiles &amp; Resume</span>
+                <div class="social-arrow-links">
+                  <a href="https://www.linkedin.com/in/karri-jayanth/" target="_blank" rel="noopener noreferrer" class="arrow-link">
+                    LinkedIn ↗
+                  </a>
+                  <a href="https://github.com/karrijayanth65/Jayanth-K" target="_blank" rel="noopener noreferrer" class="arrow-link">
+                    GitHub ↗
+                  </a>
+                  <a href="https://app.letsdefend.io/certificate/show/29b276fb-9e4e-4e3c-b181-3319d1684fd4" target="_blank" rel="noopener noreferrer" class="arrow-link">
+                    LetsDefend ↗
+                  </a>
+                  <a href="./assets/resume/Jayanth_Soc-Analyst.pdf" target="_blank" rel="noopener noreferrer" class="arrow-link">
+                    Download Resume ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="contact-demo-footer">
+            All Rights Reserved by Jayanth Karri • © 2026
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       MODAL (CERTIFICATE PREVIEW)
+       ========================================================================= -->
+  <div id="previewModal" class="modal-overlay" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle" class="modal-title">Certificate Preview</h3>
+        <button class="modal-close-btn" onclick="closeModal()">✕</button>
+      </div>
+      <div id="modalBody" class="modal-body">
+        <!-- Injected dynamically via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-msg">Email copied to clipboard!</div>
+
+  <script src="./js/app.js?v=modern_v7"></script>
+</body>
+</html>

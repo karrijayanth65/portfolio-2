@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cysaBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181028"/>
+      <stop offset="100%" stop-color="#28183c"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="420" fill="url(#cysaBg)" rx="12"/>
+  <rect x="25" y="25" width="550" height="370" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-opacity="0.3" rx="8"/>
+  <rect x="50" y="55" width="140" height="28" rx="6" fill="#991b1b"/>
+  <text x="120" y="74" fill="#fca5a5" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">LetsDefend</text>
+  <text x="50" y="115" fill="#9ca3af" font-family="sans-serif" font-size="14">Preparation Path Completion</text>
+  <text x="50" y="160" fill="#ffffff" font-family="sans-serif" font-size="28" font-weight="bold">JAYANTH KARRI</text>
+  <text x="50" y="195" fill="#ef4444" font-family="sans-serif" font-size="18" font-weight="bold">CompTIA CySA+ Preparation Path</text>
+  <text x="50" y="230" fill="#94a3b8" font-family="sans-serif" font-size="13">Security Analytics, Threat Vulnerability Management and Response</text>
+  <circle cx="480" cy="140" r="55" fill="#1e1b4b" stroke="#dc2626" stroke-width="2"/>
+  <text x="480" y="146" fill="#ef4444" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">CySA+</text>
+  <text x="50" y="360" fill="#64748b" font-family="monospace" font-size="11">LetsDefend Training Academy &#8226; Cyber Defense Certification</text>
+</svg>
