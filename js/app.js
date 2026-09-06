@@ -1,46 +1,86 @@
 /**
- * Jayanth Karri — SOC Analyst Portfolio
- * Precision Cyber Defense Architecture: Splash Screen, Pinned Header Scroll-Spy,
- * Canvas Background, Modal Previews, Tab Switchers, and Interactive Cursor
+ * JAYANTH KARRI — SOC ANALYST PORTFOLIO
+ * Core Client-Side Logic:
+ * 1. Dual Theme Engine (Dark / Light with LocalStorage & OS Sync)
+ * 2. Navigation Scroll-Spy & Header Compaction
+ * 3. Hero Visual Flank Controller (Studio Cutout vs. 360° Scroll Motion)
+ * 4. 360° Frame Sequence Engine (Preloading, Responsive Canvas, Drag + Scroll)
+ * 5. Incident Investigation Workbench (Tab Switcher)
+ * 6. KQL Query Copy Utility
+ * 7. Email Copy Utility & Toast System
+ * 8. Certificate Preview Modal
+ * 9. Ambient Interactive Cursor Follower
  */
 
 (() => {
   'use strict';
 
   // =========================================================================
-  // 1. HEROIC INTRODUCTORY SPLASH SCREEN (1 to 2 seconds transition)
+  // 1. DUAL THEME ENGINE (DARK / LIGHT)
   // =========================================================================
-  const splash = document.getElementById('splash-screen');
-  if (splash) {
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        splash.classList.add('fade-out');
-        setTimeout(() => splash.remove(), 850);
-      }, 1500);
-    });
+  const THEME_STORAGE_KEY = 'portfolio-theme';
+  const themeToggleBtn = document.getElementById('themeToggle');
 
-    // Fallback safety timeout
-    setTimeout(() => {
-      if (document.body.contains(splash)) {
-        splash.classList.add('fade-out');
-        setTimeout(() => splash.remove(), 850);
+  function getPreferredTheme() {
+    const stored = localStorage.getItem(THEME_STORAGE_KEY);
+    if (stored === 'dark' || stored === 'light') {
+      return stored;
+    }
+    // Default to dark mode (Enterprise SOC look), but respect explicit OS preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      return 'light';
+    }
+    return 'dark';
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (themeToggleBtn) {
+      themeToggleBtn.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`);
+      themeToggleBtn.setAttribute('title', `Current: ${theme === 'dark' ? 'Dark' : 'Light'} Mode (Click to toggle)`);
+    }
+  }
+
+  // Initialize theme immediately
+  const initialTheme = getPreferredTheme();
+  applyTheme(initialTheme);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const nextTheme = current === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      try {
+        localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+      } catch (e) {
+        // Storage might be restricted
       }
-    }, 2000);
+    });
+  }
+
+  // Listen to system changes if user hasn't explicitly set a preference
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem(THEME_STORAGE_KEY)) {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    });
   }
 
   // =========================================================================
-  // 2. PINNED NAVBAR (IMAGE 4) & SCROLL-SPY
+  // 2. PINNED NAVBAR SCROLL-SPY & HEADER COMPACTION
   // =========================================================================
   const pinnedNavbar = document.getElementById('pinnedNavbar');
   const navLinks = document.querySelectorAll('.nav-item-link[data-nav]');
   const sections = document.querySelectorAll('section[id]');
+  const mobileToggle = document.getElementById('mobileMenuToggle');
+  const navMenu = document.getElementById('navMenu');
 
   function updateScrollSpy() {
-    const scrollPosition = window.scrollY;
+    const scrollPos = window.scrollY;
 
-    // Compact navbar on scroll
     if (pinnedNavbar) {
-      if (scrollPosition > 40) {
+      if (scrollPos > 30) {
         pinnedNavbar.classList.add('scrolled');
       } else {
         pinnedNavbar.classList.remove('scrolled');
@@ -48,8 +88,8 @@
     }
 
     // Determine current active section
-    let currentSectionId = '';
-    const offsetThreshold = scrollPosition + 250;
+    let currentId = '';
+    const offsetThreshold = scrollPos + 240;
 
     sections.forEach((section) => {
       const top = section.offsetTop;
@@ -57,13 +97,13 @@
       const id = section.getAttribute('id');
 
       if (offsetThreshold >= top && offsetThreshold < top + height) {
-        currentSectionId = id;
+        currentId = id;
       }
     });
 
     navLinks.forEach((link) => {
       const navTarget = link.getAttribute('data-nav');
-      if (navTarget === currentSectionId) {
+      if (navTarget === currentId) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
@@ -73,202 +113,379 @@
 
   window.addEventListener('scroll', updateScrollSpy, { passive: true });
   window.addEventListener('resize', updateScrollSpy, { passive: true });
-  setTimeout(updateScrollSpy, 250);
-  setTimeout(updateScrollSpy, 1600);
+  setTimeout(updateScrollSpy, 150);
 
-  // =========================================================================
-  // 3. ABOUT ME TABS (IMAGE 5: Technical Skills vs Education)
-  // =========================================================================
-  window.switchAboutTab = function(tabName) {
-    const btnSkills = document.getElementById('tabAboutSkills');
-    const btnEdu = document.getElementById('tabAboutEdu');
-    const panelSkills = document.getElementById('panelAboutSkills');
-    const panelEdu = document.getElementById('panelAboutEdu');
+  // Mobile menu toggle
+  if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', () => {
+      const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', !isExpanded);
+      navMenu.classList.toggle('mobile-open');
+    });
 
-    if (!btnSkills || !btnEdu || !panelSkills || !panelEdu) return;
-
-    if (tabName === 'skills') {
-      btnSkills.classList.add('active');
-      btnEdu.classList.remove('active');
-      panelSkills.classList.add('active');
-      panelEdu.classList.remove('active');
-    } else {
-      btnEdu.classList.add('active');
-      btnSkills.classList.remove('active');
-      panelEdu.classList.add('active');
-      panelSkills.classList.remove('active');
-    }
-  };
-
-  // =========================================================================
-  // 4. EDGE-TO-EDGE CANVAS BACKGROUND
-  // =========================================================================
-  const TOTAL_FRAMES = 180;
-  const LERP_FACTOR = 0.09;
-
-  const canvas = document.getElementById('canvas');
-  if (canvas) {
-    const ctx = canvas.getContext('2d', { alpha: false });
-    const images = new Array(TOTAL_FRAMES + 1);
-    const loadedMap = new Uint8Array(TOTAL_FRAMES + 1);
-
-    let currentFrame = 1;
-    let targetFrame = 1;
-    let lastRenderedIndex = -1;
-    let needsRedraw = true;
-    let hasFirstFrameRendered = false;
-
-    function getFrameUrl(index) {
-      const padded = String(index).padStart(3, '0');
-      return `./assets/frames/ezgif-frame-${padded}.jpg`;
-    }
-
-    function loadFrame(index) {
-      return new Promise((resolve) => {
-        const img = new Image();
-        img.decoding = 'async';
-        img.onload = () => {
-          images[index] = img;
-          loadedMap[index] = 1;
-
-          if (!hasFirstFrameRendered && (index === 1 || index === Math.round(targetFrame))) {
-            hasFirstFrameRendered = true;
-            renderFrame(index);
-          }
-          if (index === Math.round(currentFrame)) {
-            needsRedraw = true;
-          }
-          resolve(img);
-        };
-        img.onerror = () => {
-          const fallbackImg = new Image();
-          fallbackImg.onload = () => {
-            images[index] = fallbackImg;
-            loadedMap[index] = 1;
-            resolve(fallbackImg);
-          };
-          fallbackImg.onerror = () => resolve(null);
-          fallbackImg.src = `./assets/frames/ezgif-frame-${String(index).padStart(3, '0')}.jpg`;
-        };
-        img.src = getFrameUrl(index);
+    // Close menu when clicking a navigation link
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('mobile-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
       });
-    }
-
-    async function preloadFrames() {
-      await loadFrame(1);
-      for (let i = 10; i <= TOTAL_FRAMES; i += 10) {
-        loadFrame(i);
-      }
-      for (let i = 2; i <= TOTAL_FRAMES; i++) {
-        if (!loadedMap[i]) {
-          loadFrame(i);
-        }
-      }
-    }
-
-    function getNearestLoadedFrame(targetIdx) {
-      if (loadedMap[targetIdx]) return images[targetIdx];
-
-      for (let offset = 1; offset < TOTAL_FRAMES; offset++) {
-        const down = targetIdx - offset;
-        if (down >= 1 && loadedMap[down]) return images[down];
-        const up = targetIdx + offset;
-        if (up <= TOTAL_FRAMES && loadedMap[up]) return images[up];
-      }
-      return images[1] || null;
-    }
-
-    function resizeCanvas() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const newWidth = Math.round(window.innerWidth * dpr);
-      const newHeight = Math.round(window.innerHeight * dpr);
-
-      if (canvas.width !== newWidth || canvas.height !== newHeight) {
-        canvas.width = newWidth;
-        canvas.height = newHeight;
-        needsRedraw = true;
-      }
-    }
-
-    function drawImageCover(img) {
-      if (!img) return;
-      const imgWidth = img.naturalWidth || img.width;
-      const imgHeight = img.naturalHeight || img.height;
-      if (!imgWidth || !imgHeight) return;
-
-      const cWidth = canvas.width;
-      const cHeight = canvas.height;
-
-      const imgRatio = imgWidth / imgHeight;
-      const canvasRatio = cWidth / cHeight;
-
-      let renderWidth, renderHeight, offsetX, offsetY;
-
-      if (canvasRatio > imgRatio) {
-        renderWidth = cWidth;
-        renderHeight = cWidth / imgRatio;
-        offsetX = 0;
-        offsetY = (cHeight - renderHeight) / 2;
-      } else {
-        renderHeight = cHeight;
-        renderWidth = cHeight * imgRatio;
-        offsetX = (cWidth - renderWidth) / 2;
-        offsetY = 0;
-      }
-
-      ctx.drawImage(img, offsetX, offsetY, renderWidth, renderHeight);
-    }
-
-    function renderFrame(index) {
-      const img = getNearestLoadedFrame(index);
-      if (img) {
-        drawImageCover(img);
-        lastRenderedIndex = index;
-      }
-    }
-
-    function updateScrollTarget() {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      if (maxScroll <= 0) {
-        targetFrame = 1;
-        return;
-      }
-      const progress = Math.min(Math.max(window.scrollY / maxScroll, 0), 1);
-      targetFrame = 1 + progress * (TOTAL_FRAMES - 1);
-    }
-
-    function animate() {
-      updateScrollTarget();
-
-      const diff = targetFrame - currentFrame;
-      if (Math.abs(diff) > 0.001) {
-        currentFrame += diff * LERP_FACTOR;
-      } else {
-        currentFrame = targetFrame;
-      }
-
-      const frameIndex = Math.min(TOTAL_FRAMES, Math.max(1, Math.round(currentFrame)));
-
-      if (frameIndex !== lastRenderedIndex || needsRedraw) {
-        renderFrame(frameIndex);
-        needsRedraw = false;
-      }
-
-      requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      needsRedraw = true;
-    }, { passive: true });
-
-    resizeCanvas();
-    preloadFrames();
-    requestAnimationFrame(animate);
+    });
   }
 
   // =========================================================================
-  // 5. CERTIFICATE PREVIEW MODAL (IMAGE 1 EYE BUTTON)
+  // 3. HERO VISUAL FLANK CONTROLLER (STUDIO CUTOUT vs. 360° MOTION)
+  // =========================================================================
+  const viewBtnPortrait = document.getElementById('viewBtnPortrait');
+  const viewBtnCinematic = document.getElementById('viewBtnCinematic');
+  const heroStagePortrait = document.getElementById('heroStagePortrait');
+  const heroStageCanvas = document.getElementById('heroStageCanvas');
+  let currentHeroMode = 'portrait';
+
+  window.switchHeroView = function(viewMode) {
+    currentHeroMode = viewMode;
+    if (viewMode === 'portrait') {
+      if (viewBtnPortrait) {
+        viewBtnPortrait.classList.add('active');
+        viewBtnPortrait.setAttribute('aria-selected', 'true');
+      }
+      if (viewBtnCinematic) {
+        viewBtnCinematic.classList.remove('active');
+        viewBtnCinematic.setAttribute('aria-selected', 'false');
+      }
+      if (heroStagePortrait) heroStagePortrait.classList.add('active');
+      if (heroStageCanvas) heroStageCanvas.classList.remove('active');
+    } else if (viewMode === 'cinematic') {
+      if (viewBtnCinematic) {
+        viewBtnCinematic.classList.add('active');
+        viewBtnCinematic.setAttribute('aria-selected', 'true');
+      }
+      if (viewBtnPortrait) {
+        viewBtnPortrait.classList.remove('active');
+        viewBtnPortrait.setAttribute('aria-selected', 'false');
+      }
+      if (heroStageCanvas) heroStageCanvas.classList.add('active');
+      if (heroStagePortrait) heroStagePortrait.classList.remove('active');
+
+      // Make sure canvas is properly sized and rendered
+      if (typeof window.triggerCanvasResize === 'function') {
+        window.triggerCanvasResize();
+      }
+    }
+  };
+
+  window.toggleHeroView = function() {
+    const nextMode = currentHeroMode === 'portrait' ? 'cinematic' : 'portrait';
+    window.switchHeroView(nextMode);
+  };
+
+  // =========================================================================
+  // 4. 360° SCROLL-DRIVEN SEQUENCE ENGINE
+  // =========================================================================
+  const canvas = document.getElementById('heroScrollCanvas');
+  const TOTAL_FRAMES = 180;
+  const framesCache = new Array(TOTAL_FRAMES + 1);
+  const loadedFlags = new Array(TOTAL_FRAMES + 1).fill(false);
+
+  let targetFrame = 1;
+  let currentFrame = 1;
+  let isDragging = false;
+  let dragStartX = 0;
+  let dragStartFrame = 1;
+  let canvasCtx = null;
+  let hasReducedMotion = false;
+
+  if (window.matchMedia) {
+    hasReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function getFramePath(frameIndex) {
+    const padded = String(frameIndex).padStart(3, '0');
+    return `./assets/frames/ezgif-frame-${padded}.jpg`;
+  }
+
+  function loadSingleFrame(frameIndex, onLoaded) {
+    if (framesCache[frameIndex]) {
+      if (loadedFlags[frameIndex] && onLoaded) onLoaded(framesCache[frameIndex]);
+      return;
+    }
+    const img = new Image();
+    img.src = getFramePath(frameIndex);
+    img.onload = () => {
+      loadedFlags[frameIndex] = true;
+      if (onLoaded) onLoaded(img);
+      // If this is currently the frame we are trying to show, re-render
+      if (Math.round(currentFrame) === frameIndex && canvasCtx) {
+        renderFrame(frameIndex);
+      }
+    };
+    framesCache[frameIndex] = img;
+  }
+
+  // Preloading Strategy: Frame 1 -> Anchor milestones -> Remaining frames
+  function startPreloading() {
+    // 1. First priority: Frame 1
+    loadSingleFrame(1, (img) => {
+      if (canvasCtx) renderFrame(1);
+    });
+
+    // 2. Anchor milestones every 10 frames for fast scrubbing availability
+    setTimeout(() => {
+      for (let i = 10; i <= TOTAL_FRAMES; i += 10) {
+        loadSingleFrame(i);
+      }
+    }, 100);
+
+    // 3. Incrementally preload all remaining frames in chunks
+    setTimeout(() => {
+      let nextFrame = 2;
+      function preloadBatch() {
+        const batchSize = 6;
+        let count = 0;
+        while (nextFrame <= TOTAL_FRAMES && count < batchSize) {
+          if (!loadedFlags[nextFrame]) {
+            loadSingleFrame(nextFrame);
+          }
+          nextFrame++;
+          count++;
+        }
+        if (nextFrame <= TOTAL_FRAMES) {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(preloadBatch, { timeout: 150 });
+          } else {
+            setTimeout(preloadBatch, 40);
+          }
+        }
+      }
+      preloadBatch();
+    }, 400);
+  }
+
+  // Find nearest loaded frame if target frame is still downloading
+  function getNearestLoadedFrame(index) {
+    if (loadedFlags[index]) return framesCache[index];
+    for (let offset = 1; offset < TOTAL_FRAMES; offset++) {
+      const lower = index - offset;
+      if (lower >= 1 && loadedFlags[lower]) return framesCache[lower];
+      const upper = index + offset;
+      if (upper <= TOTAL_FRAMES && loadedFlags[upper]) return framesCache[upper];
+    }
+    return framesCache[1] || null;
+  }
+
+  // Proportional cover drawing on canvas
+  function drawImageCover(ctx, img) {
+    if (!img || !img.complete || img.naturalWidth === 0) return;
+    const cw = ctx.canvas.width;
+    const ch = ctx.canvas.height;
+    const iw = img.naturalWidth;
+    const ih = img.naturalHeight;
+
+    const r = Math.max(cw / iw, ch / ih);
+    const nw = iw * r;
+    const nh = ih * r;
+    const nx = (cw - nw) / 2;
+    const ny = (ch - nh) / 2;
+
+    ctx.clearRect(0, 0, cw, ch);
+    ctx.drawImage(img, nx, ny, nw, nh);
+  }
+
+  function renderFrame(index) {
+    if (!canvasCtx) return;
+    const img = getNearestLoadedFrame(index);
+    if (img) {
+      drawImageCover(canvasCtx, img);
+    }
+  }
+
+  function resizeCanvas() {
+    if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round((rect.width || 500) * dpr);
+    canvas.height = Math.round((rect.height || 500) * dpr);
+    renderFrame(Math.round(currentFrame));
+  }
+  window.triggerCanvasResize = resizeCanvas;
+
+  // Animation lerp loop
+  function tickSequence() {
+    const diff = targetFrame - currentFrame;
+    if (Math.abs(diff) > 0.05) {
+      currentFrame += diff * 0.22;
+      renderFrame(Math.round(currentFrame));
+    }
+    requestAnimationFrame(tickSequence);
+  }
+
+  if (canvas) {
+    canvasCtx = canvas.getContext('2d');
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas, { passive: true });
+    startPreloading();
+    requestAnimationFrame(tickSequence);
+
+    // Scroll-driven frame update
+    window.addEventListener('scroll', () => {
+      if (hasReducedMotion) return;
+      const scrollPos = window.scrollY;
+      const heroSection = document.getElementById('hero');
+      const heroHeight = heroSection ? heroSection.offsetHeight : 700;
+
+      if (scrollPos <= heroHeight) {
+        const progress = Math.min(Math.max(scrollPos / (heroHeight * 0.9), 0), 1);
+        targetFrame = Math.min(TOTAL_FRAMES, Math.max(1, Math.round(progress * (TOTAL_FRAMES - 1)) + 1));
+      }
+    }, { passive: true });
+
+    // Interactive Drag / Swipe rotation on canvas (Click toggles back to portrait)
+    let dragDistance = 0;
+
+    canvas.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      dragStartX = e.clientX;
+      dragStartFrame = currentFrame;
+      dragDistance = 0;
+      canvas.classList.add('grabbing');
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - dragStartX;
+      dragDistance = Math.max(dragDistance, Math.abs(deltaX));
+      const frameOffset = Math.round(deltaX / 3.5);
+      let newFrame = (dragStartFrame - frameOffset) % TOTAL_FRAMES;
+      if (newFrame < 1) newFrame += TOTAL_FRAMES;
+      targetFrame = newFrame;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        canvas.classList.remove('grabbing');
+        // If it was a simple click rather than a rotation drag, switch back to portrait!
+        if (dragDistance < 6) {
+          window.toggleHeroView();
+        }
+      }
+    });
+
+    // Touch support for mobile rotation (Tap toggles back to portrait)
+    canvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        dragStartX = e.touches[0].clientX;
+        dragStartFrame = currentFrame;
+        dragDistance = 0;
+      }
+    }, { passive: true });
+
+    canvas.addEventListener('touchmove', (e) => {
+      if (!isDragging || e.touches.length !== 1) return;
+      const deltaX = e.touches[0].clientX - dragStartX;
+      dragDistance = Math.max(dragDistance, Math.abs(deltaX));
+      const frameOffset = Math.round(deltaX / 4);
+      let newFrame = (dragStartFrame - frameOffset) % TOTAL_FRAMES;
+      if (newFrame < 1) newFrame += TOTAL_FRAMES;
+      targetFrame = newFrame;
+    }, { passive: true });
+
+    canvas.addEventListener('touchend', () => {
+      if (isDragging) {
+        isDragging = false;
+        if (dragDistance < 6) {
+          window.toggleHeroView();
+        }
+      }
+    });
+  }
+
+  // =========================================================================
+  // 5. INCIDENT INVESTIGATION WORKBENCH (CASE SWITCHER)
+  // =========================================================================
+  window.switchCase = function(caseId) {
+    const tabButtons = document.querySelectorAll('.case-tab-btn');
+    const casePanels = document.querySelectorAll('.case-study-panel');
+
+    tabButtons.forEach((btn) => {
+      const target = btn.getAttribute('data-case');
+      if (target === caseId) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+      } else {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      }
+    });
+
+    casePanels.forEach((panel) => {
+      if (panel.id === caseId) {
+        panel.classList.add('active');
+      } else {
+        panel.classList.remove('active');
+      }
+    });
+  };
+
+  // =========================================================================
+  // 6. COPY QUERY CODE TO CLIPBOARD
+  // =========================================================================
+  window.copyQuery = function(btnElement, codeElementId) {
+    const codeEl = document.getElementById(codeElementId);
+    if (!codeEl) return;
+
+    const queryText = codeEl.textContent.trim();
+
+    navigator.clipboard.writeText(queryText).then(() => {
+      const origHtml = btnElement.innerHTML;
+      btnElement.innerHTML = `
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Copied!</span>
+      `;
+      btnElement.style.background = 'var(--accent-green)';
+      btnElement.style.borderColor = 'var(--accent-green)';
+      btnElement.style.color = '#ffffff';
+
+      showToast('KQL Detection Query copied to clipboard!');
+
+      setTimeout(() => {
+        btnElement.innerHTML = origHtml;
+        btnElement.style.background = '';
+        btnElement.style.borderColor = '';
+        btnElement.style.color = '';
+      }, 2500);
+    }).catch(() => {
+      showToast('Could not copy query automatically.');
+    });
+  };
+
+  // =========================================================================
+  // 7. COPY EMAIL TO CLIPBOARD & TOAST SYSTEM
+  // =========================================================================
+  window.copyEmail = function() {
+    const email = 'karrijayanth65@gmail.com';
+    navigator.clipboard.writeText(email).then(() => {
+      showToast('Email address copied to clipboard!');
+    }).catch(() => {
+      prompt('Copy email manually:', email);
+    });
+  };
+
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2800);
+  }
+
+  // =========================================================================
+  // 8. CERTIFICATE PREVIEW MODAL
   // =========================================================================
   const modal = document.getElementById('previewModal');
   const modalTitle = document.getElementById('modalTitle');
@@ -276,29 +493,33 @@
 
   window.openModal = function(type, url, title) {
     if (!modal || !modalBody) return;
-    modalTitle.textContent = title || 'Credential Preview';
+    if (modalTitle) modalTitle.textContent = title || 'Credential Preview';
     modalBody.innerHTML = '';
 
     if (type === 'image') {
       const img = document.createElement('img');
       img.src = url;
-      img.alt = title || 'Certification Preview';
+      img.alt = title || 'Credential Preview';
       img.loading = 'eager';
-      img.decoding = 'async';
       modalBody.appendChild(img);
     } else if (type === 'pdf') {
       const iframe = document.createElement('iframe');
       iframe.src = url + '#toolbar=0';
+      iframe.style.width = '100%';
+      iframe.style.height = '72vh';
+      iframe.style.border = 'none';
       modalBody.appendChild(iframe);
     }
 
     modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   };
 
   window.closeModal = function() {
     if (!modal) return;
     modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     if (modalBody) modalBody.innerHTML = '';
   };
@@ -316,30 +537,26 @@
   });
 
   // =========================================================================
-  // 6. COPY EMAIL TO CLIPBOARD
+  // 9. INTERACTIVE AMBIENT CURSOR GLOW (DESKTOP / FINE POINTER)
   // =========================================================================
-  window.copyEmail = function() {
-    const email = 'karrijayanth65@gmail.com';
-    navigator.clipboard.writeText(email).then(() => {
-      const toast = document.getElementById('toast');
-      if (toast) {
-        toast.classList.add('show');
-        setTimeout(() => {
-          toast.classList.remove('show');
-        }, 2500);
-      }
-    }).catch(() => {
-      alert(`Email: ${email}`);
-    });
-  };
+  if (window.matchMedia && window.matchMedia('(pointer: fine)').matches && !hasReducedMotion) {
+    let cursorDot = document.getElementById('cursorDot');
+    let cursorFollower = document.getElementById('cursorFollower');
 
-  // =========================================================================
-  // 7. INTERACTIVE GLOWING CURSOR EFFECT
-  // =========================================================================
-  const cursorDot = document.getElementById('cursorDot');
-  const cursorFollower = document.getElementById('cursorFollower');
+    if (!cursorDot) {
+      cursorDot = document.createElement('div');
+      cursorDot.id = 'cursorDot';
+      cursorDot.className = 'cursor-dot';
+      document.body.appendChild(cursorDot);
+    }
 
-  if (cursorDot && cursorFollower && window.matchMedia('(pointer: fine)').matches) {
+    if (!cursorFollower) {
+      cursorFollower = document.createElement('div');
+      cursorFollower.id = 'cursorFollower';
+      cursorFollower.className = 'cursor-follower';
+      document.body.appendChild(cursorFollower);
+    }
+
     let mouseX = -100;
     let mouseY = -100;
     let followerX = -100;
@@ -368,17 +585,11 @@
       isVisible = false;
     });
 
-    window.addEventListener('mousedown', () => {
-      cursorFollower.classList.add('active');
-    });
-
-    window.addEventListener('mouseup', () => {
-      cursorFollower.classList.remove('active');
-    });
-
     function attachCursorHover() {
-      const targets = document.querySelectorAll('a, button, input, textarea, .cert-ref-card, .project-ref-card, .achievement-card, .skill-pill-item, .exp-card-ref, .btn-copy-email-glow');
-      targets.forEach((el) => {
+      const interactiveElements = document.querySelectorAll(
+        'a, button, .snapshot-tile, .cap-card, .case-tab-btn, .rule-card, .cert-card, .github-card, .tool-flow-step, .lifecycle-card'
+      );
+      interactiveElements.forEach((el) => {
         el.addEventListener('mouseenter', () => cursorFollower.classList.add('hovered'));
         el.addEventListener('mouseleave', () => cursorFollower.classList.remove('hovered'));
       });
