@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css?v=premium_soc_v2">
+  <link rel="stylesheet" href="./css/style.css?v=soc_navbar_fixed_v5">
 </head>
 <body>
 
@@ -62,47 +62,10 @@
         <a href="#snapshot" class="nav-item-link" data-nav="snapshot">Snapshot</a>
         <a href="#about" class="nav-item-link" data-nav="about">About</a>
         <a href="#experience" class="nav-item-link" data-nav="experience">Experience</a>
-        
-        <!-- Defense Ops Dropdown -->
-        <div class="nav-dropdown" id="navDropdownOps">
-          <button type="button" class="nav-item-link nav-dropdown-btn" id="dropdownTrigger" aria-expanded="false" aria-haspopup="true">
-            <span>Defense Ops</span>
-            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </button>
-          <div class="nav-dropdown-menu" id="dropdownMenu">
-            <a href="#investigations" class="nav-dropdown-item" data-nav="investigations">
-              <span class="dropdown-item-icon">🚨</span>
-              <div class="dropdown-item-content">
-                <span class="dropdown-item-title">Investigations</span>
-                <span class="dropdown-item-sub">Multi-vector triage &amp; playbooks</span>
-              </div>
-            </a>
-            <a href="#detections" class="nav-dropdown-item" data-nav="detections">
-              <span class="dropdown-item-icon">🛡️</span>
-              <div class="dropdown-item-content">
-                <span class="dropdown-item-title">KQL Detections</span>
-                <span class="dropdown-item-sub">Sentinel &amp; Defender rules</span>
-              </div>
-            </a>
-            <a href="#hunting" class="nav-dropdown-item" data-nav="hunting">
-              <span class="dropdown-item-icon">🎯</span>
-              <div class="dropdown-item-content">
-                <span class="dropdown-item-title">Threat Hunting</span>
-                <span class="dropdown-item-sub">Hypothesis-driven threat hunts</span>
-              </div>
-            </a>
-            <a href="#capabilities" class="nav-dropdown-item" data-nav="capabilities">
-              <span class="dropdown-item-icon">⚡</span>
-              <div class="dropdown-item-content">
-                <span class="dropdown-item-title">Capabilities</span>
-                <span class="dropdown-item-sub">SIEM, EDR, SOAR &amp; Defense stack</span>
-              </div>
-            </a>
-          </div>
-        </div>
-
+        <a href="#capabilities" class="nav-item-link" data-nav="capabilities">Capabilities</a>
+        <a href="#investigations" class="nav-item-link" data-nav="investigations">Investigations</a>
+        <a href="#detections" class="nav-item-link" data-nav="detections">Detections</a>
+        <a href="#hunting" class="nav-item-link" data-nav="hunting">Threat Hunting</a>
         <a href="#projects" class="nav-item-link" data-nav="projects">Projects</a>
         <a href="#matrix" class="nav-item-link" data-nav="matrix">Skills</a>
         <a href="#certifications" class="nav-item-link" data-nav="certifications">Certs</a>
