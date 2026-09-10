@@ -71,16 +71,18 @@
   // 2. PINNED NAVBAR SCROLL-SPY & HEADER COMPACTION
   // =========================================================================
   const pinnedNavbar = document.getElementById('pinnedNavbar');
-  const navLinks = document.querySelectorAll('.nav-item-link[data-nav]');
+  const navLinks = document.querySelectorAll('.nav-item-link[data-nav], .nav-dropdown-item[data-nav]');
   const sections = document.querySelectorAll('section[id]');
   const mobileToggle = document.getElementById('mobileMenuToggle');
   const navMenu = document.getElementById('navMenu');
+  const dropdownTrigger = document.getElementById('dropdownTrigger');
+  const dropdownContainer = document.getElementById('navDropdownOps');
 
   function updateScrollSpy() {
     const scrollPos = window.scrollY;
 
     if (pinnedNavbar) {
-      if (scrollPos > 30) {
+      if (scrollPos > 25) {
         pinnedNavbar.classList.add('scrolled');
       } else {
         pinnedNavbar.classList.remove('scrolled');
@@ -109,11 +111,38 @@
         link.classList.remove('active');
       }
     });
+
+    // Parent trigger state for Defense Ops dropdown
+    const opsSections = ['investigations', 'detections', 'hunting', 'capabilities'];
+    if (dropdownTrigger) {
+      if (opsSections.includes(currentId)) {
+        dropdownTrigger.classList.add('active');
+      } else {
+        dropdownTrigger.classList.remove('active');
+      }
+    }
   }
 
   window.addEventListener('scroll', updateScrollSpy, { passive: true });
   window.addEventListener('resize', updateScrollSpy, { passive: true });
   setTimeout(updateScrollSpy, 150);
+
+  // Touch / Click toggle for dropdown
+  if (dropdownTrigger && dropdownContainer) {
+    dropdownTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownContainer.classList.toggle('open');
+      const isExpanded = dropdownContainer.classList.contains('open');
+      dropdownTrigger.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdownContainer.contains(e.target)) {
+        dropdownContainer.classList.remove('open');
+        dropdownTrigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 
   // Mobile menu toggle
   if (mobileToggle && navMenu) {
@@ -123,11 +152,12 @@
       navMenu.classList.toggle('mobile-open');
     });
 
-    // Close menu when clicking a navigation link
+    // Close menu when clicking any navigation link
     navLinks.forEach((link) => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('mobile-open');
         mobileToggle.setAttribute('aria-expanded', 'false');
+        if (dropdownContainer) dropdownContainer.classList.remove('open');
       });
     });
   }

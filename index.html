@@ -37,10 +37,24 @@
        ========================================================================= -->
   <header class="navbar-pinned" id="pinnedNavbar">
     <div class="nav-container">
-      <a href="#hero" class="brand-title" aria-label="Jayanth Karri Home">
-        <span class="brand-symbol">🛡️</span>
+      <a href="#hero" class="brand-title" aria-label="Jayanth Karri SOC Analyst">
+        <div class="brand-logo-wrap">
+          <svg class="brand-shield-svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <defs>
+              <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8" />
+                <stop offset="100%" stop-color="#818cf8" />
+              </linearGradient>
+            </defs>
+            <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z" stroke="url(#shieldGrad)" stroke-width="2" stroke-linejoin="round" fill="rgba(56, 189, 248, 0.12)" />
+            <path d="M12 7v5l3 2" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
         <span class="brand-name">Jayanth Karri</span>
-        <span class="brand-badge">&lt;CYBER_DEFENSE/&gt;</span>
+        <span class="brand-badge">
+          <span class="badge-pulse-dot"></span>
+          <span>CYBER DEFENSE</span>
+        </span>
       </a>
 
       <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
@@ -48,12 +62,49 @@
         <a href="#snapshot" class="nav-item-link" data-nav="snapshot">Snapshot</a>
         <a href="#about" class="nav-item-link" data-nav="about">About</a>
         <a href="#experience" class="nav-item-link" data-nav="experience">Experience</a>
-        <a href="#capabilities" class="nav-item-link" data-nav="capabilities">Capabilities</a>
-        <a href="#investigations" class="nav-item-link" data-nav="investigations">Investigations</a>
-        <a href="#detections" class="nav-item-link" data-nav="detections">Detections</a>
-        <a href="#hunting" class="nav-item-link" data-nav="hunting">Threat Hunting</a>
+        
+        <!-- Defense Ops Dropdown -->
+        <div class="nav-dropdown" id="navDropdownOps">
+          <button type="button" class="nav-item-link nav-dropdown-btn" id="dropdownTrigger" aria-expanded="false" aria-haspopup="true">
+            <span>Defense Ops</span>
+            <svg class="dropdown-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="nav-dropdown-menu" id="dropdownMenu">
+            <a href="#investigations" class="nav-dropdown-item" data-nav="investigations">
+              <span class="dropdown-item-icon">🚨</span>
+              <div class="dropdown-item-content">
+                <span class="dropdown-item-title">Investigations</span>
+                <span class="dropdown-item-sub">Multi-vector triage &amp; playbooks</span>
+              </div>
+            </a>
+            <a href="#detections" class="nav-dropdown-item" data-nav="detections">
+              <span class="dropdown-item-icon">🛡️</span>
+              <div class="dropdown-item-content">
+                <span class="dropdown-item-title">KQL Detections</span>
+                <span class="dropdown-item-sub">Sentinel &amp; Defender rules</span>
+              </div>
+            </a>
+            <a href="#hunting" class="nav-dropdown-item" data-nav="hunting">
+              <span class="dropdown-item-icon">🎯</span>
+              <div class="dropdown-item-content">
+                <span class="dropdown-item-title">Threat Hunting</span>
+                <span class="dropdown-item-sub">Hypothesis-driven threat hunts</span>
+              </div>
+            </a>
+            <a href="#capabilities" class="nav-dropdown-item" data-nav="capabilities">
+              <span class="dropdown-item-icon">⚡</span>
+              <div class="dropdown-item-content">
+                <span class="dropdown-item-title">Capabilities</span>
+                <span class="dropdown-item-sub">SIEM, EDR, SOAR &amp; Defense stack</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
         <a href="#projects" class="nav-item-link" data-nav="projects">Projects</a>
-        <a href="#matrix" class="nav-item-link" data-nav="matrix">Skills &amp; Matrix</a>
+        <a href="#matrix" class="nav-item-link" data-nav="matrix">Skills</a>
         <a href="#certifications" class="nav-item-link" data-nav="certifications">Certs</a>
         <a href="#contact" class="nav-item-link" data-nav="contact">Contact</a>
       </nav>
@@ -61,7 +112,7 @@
       <div class="nav-actions">
         <!-- Theme Switcher (Dark / Light) -->
         <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Light and Dark Mode" title="Toggle Theme">
-          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="sun-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -72,14 +123,18 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="moon-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
 
         <!-- Direct Resume Download -->
-        <a href="./assets/resume/Jayanth_Soc-Analyst.pdf" target="_blank" rel="noopener noreferrer" class="nav-resume-btn">
-          <span>Resume ↗</span>
+        <a href="./assets/resume/Jayanth_Soc-Analyst.pdf" target="_blank" rel="noopener noreferrer" class="nav-resume-btn" title="Download Official Resume PDF">
+          <span>Resume</span>
+          <svg class="resume-arrow-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
         </a>
 
         <!-- Mobile Hamburger Toggle -->
