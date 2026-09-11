@@ -115,9 +115,10 @@
   window.addEventListener('resize', updateScrollSpy, { passive: true });
   setTimeout(updateScrollSpy, 150);
 
-  // Mobile menu toggle
+  // Mobile menu toggle & outside-click close
   if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
       mobileToggle.setAttribute('aria-expanded', !isExpanded);
       navMenu.classList.toggle('mobile-open');
@@ -129,6 +130,22 @@
         navMenu.classList.remove('mobile-open');
         mobileToggle.setAttribute('aria-expanded', 'false');
       });
+    });
+
+    // Close menu when tapping anywhere outside
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('mobile-open') && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+        navMenu.classList.remove('mobile-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close menu on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('mobile-open')) {
+        navMenu.classList.remove('mobile-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 
